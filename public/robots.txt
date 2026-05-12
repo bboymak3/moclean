@@ -1,3 +1,6 @@
+# Robots.txt para ÁtomoClean - Limpieza a Domicilio en Santiago, Chile
+# https://limpiezaadomicilio.pages.dev
+
 User-agent: Googlebot
 Allow: /
 
@@ -12,3 +15,8 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+
+# Sitemap
+Sitemap: https://limpiezaadomicilio.pages.dev/sitemap.xml

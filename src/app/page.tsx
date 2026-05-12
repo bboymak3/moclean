@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import {
-  Home,
+  Home as HomeIcon,
   Building2,
   Sparkles,
   Armchair,
@@ -57,7 +57,7 @@ const NAV_LINKS = [
 
 const SERVICES = [
   {
-    icon: Home,
+    icon: HomeIcon,
     title: "Limpieza de Casas y Departamentos",
     keyword: "Limpieza de casas a domicilio",
     slug: "limpieza-casas-departamentos",

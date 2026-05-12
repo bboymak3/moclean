@@ -298,6 +298,7 @@ const STATS = [
 export default function Home() {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [comunasOpen, setComunasOpen] = useState(false);
   const [formData, setFormData] = useState({
     nombre: "",
     telefono: "",
@@ -351,6 +352,34 @@ export default function Home() {
                   {link.label}
                 </button>
               ))}
+              {/* Comunas Dropdown */}
+              <div className="relative" onMouseLeave={() => setComunasOpen(false)}>
+                <button
+                  onClick={() => setComunasOpen(!comunasOpen)}
+                  className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors flex items-center gap-1"
+                >
+                  <MapPin className="w-4 h-4" />
+                  Comunas
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${comunasOpen ? "rotate-180" : ""}`} />
+                </button>
+                {comunasOpen && (
+                  <div className="absolute right-0 top-full mt-1 w-72 max-h-[70vh] overflow-y-auto bg-white rounded-xl border border-emerald-100 shadow-xl py-2 z-50">
+                    <div className="px-4 py-2 border-b border-emerald-50">
+                      <p className="text-xs font-semibold text-emerald-700 uppercase tracking-wide">Zonas que atendemos</p>
+                    </div>
+                    {COMUNAS.map((c) => (
+                      <Link
+                        key={c.slug}
+                        href={`/comunas/${c.slug}`}
+                        className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 transition-colors"
+                      >
+                        <MapPin className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                        {c.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
               <Button
                 onClick={() => window.open("https://wa.me/56940349957?text=Hola%20ÁtomoClean%2C%20quiero%20cotizar%20un%20servicio%20de%20limpieza", "_blank")}
                 className="ml-3 bg-emerald-600 hover:bg-emerald-700 text-white"
@@ -383,6 +412,32 @@ export default function Home() {
                   {link.label}
                 </button>
               ))}
+              {/* Comunas Mobile */}
+              <button
+                onClick={() => setComunasOpen(!comunasOpen)}
+                className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg text-left transition-colors flex items-center justify-between"
+              >
+                <span className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  Comunas
+                </span>
+                {comunasOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+              </button>
+              {comunasOpen && (
+                <div className="grid grid-cols-2 gap-0.5 px-2 pb-2 max-h-60 overflow-y-auto">
+                  {COMUNAS.map((c) => (
+                    <Link
+                      key={c.slug}
+                      href={`/comunas/${c.slug}`}
+                      onClick={() => setMobileMenu(false)}
+                      className="flex items-center gap-2 px-3 py-2 text-xs text-gray-600 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors"
+                    >
+                      <MapPin className="w-3 h-3 text-emerald-400 flex-shrink-0" />
+                      {c.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
               <Button
                 onClick={() => window.open("https://wa.me/56940349957?text=Hola%20ÁtomoClean%2C%20quiero%20cotizar%20un%20servicio%20de%20limpieza", "_blank")}
                 className="mt-2 bg-emerald-600 hover:bg-emerald-700 text-white"

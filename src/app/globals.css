@@ -89,3 +89,109 @@
     scroll-behavior: smooth;
   }
 }
+
+/* ─── Sticky Bottom Bar ─── */
+.sticky-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+  z-index: 9999;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.6);
+  border-top: 3px solid #059669;
+}
+
+.big-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  gap: 8px;
+  height: 100%;
+}
+
+.btn-massive-call {
+  flex: 1;
+  height: 60px;
+  background-color: #D32F2F;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-transform: uppercase;
+  transition: transform 0.2s, background-color 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.btn-massive-call:hover {
+  transform: scale(1.02);
+  background-color: #b71c1c;
+}
+
+.btn-massive-wa {
+  flex: 1;
+  height: 60px;
+  background-color: #25D366;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.2s, background-color 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.btn-massive-wa:hover {
+  transform: scale(1.02);
+  background-color: #1ebc57;
+}
+
+@media (min-width: 992px) {
+  .sticky-bottom-bar {
+    height: 90px;
+    padding: 0 50px;
+  }
+  .big-buttons-container {
+    max-width: 1200px;
+  }
+  .btn-massive-call,
+  .btn-massive-wa {
+    font-size: 1.5rem;
+    height: 70px;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(211, 47, 47, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(211, 47, 47, 0);
+  }
+}
+
+.btn-massive-call {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

@@ -257,6 +257,22 @@ const FAQS = [
     q: "¿El servicio tiene garantía?",
     a: "Sí, todos nuestros servicios cuentan con garantía de satisfacción. Si no quedas conforme con el resultado, volvemos a realizar el servicio sin costo adicional. Tu satisfacción es nuestra prioridad absoluta.",
   },
+  {
+    q: "¿Limpian desastres que realizan las mascotas?",
+    a: "Sí, limpiamos desastres de mascotas como orina, heces, vómito y manchas difíciles en alfombras, sillones, colchones y pisos. Nuestro sistema de vapor elimina la mancha, desinfecta y neutraliza olores en profundidad, dejando el área completamente higienizada.",
+  },
+  {
+    q: "¿Hacen limpieza después de fiestas o eventos?",
+    a: "Sí, ofrecemos limpieza completa después de fiestas, reuniones y eventos. Retiramos restos de comida, bebidas derramadas, manchas en muebles y alfombras, limpiamos baños, cocina y todas las áreas afectadas. Dejamos tu espacio impecable.",
+  },
+  {
+    q: "¿Limpian hoteles, Airbnb, baños, frentes de casas, paredes y ventanas?",
+    a: "Sí, limpiamos hoteles y Airbnb con servicio profesional por cambio de huésped. También realizamos limpieza de baños, frentes y fachadas de casas, paredes interiores y exteriores, ventanas y vidrios, tapiz de paredes, y áreas exteriores como parques y patios.",
+  },
+  {
+    q: "¿Limpian tapicería de autos, alfombras, muebles, cortinas, camas y colchones?",
+    a: "Sí, estos son algunos de nuestros servicios más solicitados. Limpiamos la tapicería completa de autos, alfombras de todo tipo, muebles de tela y cuero, cortinas sin desmontar, camas y colchones con desinfección profunda que elimina el 99% de ácaros y bacterias.",
+  },
 ];
 
 const TESTIMONIALS = [

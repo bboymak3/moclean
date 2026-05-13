@@ -308,10 +308,10 @@ export default function QuienesSomosPage() {
         .btn-massive-call {
           flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
           padding: 16px 12px; font-size: 15px; font-weight: 700;
-          background: #059669; color: white; text-decoration: none;
+          background: #0EA5E9; color: white; text-decoration: none;
           transition: background 0.2s;
         }
-        .btn-massive-call:hover { background: #047857; }
+        .btn-massive-call:hover { background: #0284C7; }
         .btn-massive-wa {
           flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
           padding: 16px 12px; font-size: 15px; font-weight: 700;

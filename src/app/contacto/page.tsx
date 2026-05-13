@@ -293,8 +293,8 @@ export default function ContactoPage() {
       <style jsx>{`
         .sticky-bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; background: transparent; padding: 0; pointer-events: none; }
         .big-buttons-container { display: flex; gap: 0; pointer-events: auto; }
-        .btn-massive-call { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 12px; font-size: 15px; font-weight: 700; background: #059669; color: white; text-decoration: none; transition: background 0.2s; }
-        .btn-massive-call:hover { background: #047857; }
+        .btn-massive-call { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 12px; font-size: 15px; font-weight: 700; background: #0EA5E9; color: white; text-decoration: none; transition: background 0.2s; }
+        .btn-massive-call:hover { background: #0284C7; }
         .btn-massive-wa { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 12px; font-size: 15px; font-weight: 700; background: #25D366; color: white; text-decoration: none; transition: background 0.2s; }
         .btn-massive-wa:hover { background: #1da851; }
       `}</style>

@@ -121,7 +121,7 @@
 .btn-massive-call {
   flex: 1;
   height: 60px;
-  background-color: #D32F2F;
+  background-color: #0EA5E9;
   color: white;
   border: none;
   border-radius: 10px;
@@ -139,7 +139,7 @@
 
 .btn-massive-call:hover {
   transform: scale(1.02);
-  background-color: #b71c1c;
+  background-color: #0284C7;
 }
 
 .btn-massive-wa {
@@ -182,13 +182,13 @@
 
 @keyframes pulse-ring {
   0% {
-    box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.5);
+    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.5);
   }
   70% {
-    box-shadow: 0 0 0 10px rgba(211, 47, 47, 0);
+    box-shadow: 0 0 0 10px rgba(14, 165, 233, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(211, 47, 47, 0);
+    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
   }
 }
 

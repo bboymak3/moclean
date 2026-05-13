@@ -104,7 +104,10 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
     { q: "¿La limpieza a vapor daña los tejidos o materiales?", a: "No. Nuestro equipo profesional está calibrado para ser seguro en todo tipo de materiales: telas, cuero, microfibra, alfombras de lana, sintéticas y más." },
     { q: "¿Ofrecen boleta o factura?", a: "Sí, emitimos boleta o factura según tu requerimiento. Solo indícalo al momento de solicitar tu cotización." },
     { q: "¿El servicio tiene garantía?", a: "Sí, todos nuestros servicios cuentan con garantía de satisfacción. Si no quedas conforme con el resultado, volvemos a realizar el servicio sin costo adicional." },
-    { q: `¿Qué servicios de limpieza ofrecen en ${comunaName}?`, a: `En ${comunaName} ofrecemos limpieza de casas, departamentos, oficinas, alfombras, sillones, colchones, cortinas, tapicería de autos, Airbnb, post obra, vidrios, tapiz de paredes, y limpieza para clínicas, gyms y escuelas.` },
+    { q: `¿Qué servicios de limpieza ofrecen en ${comunaName}?`, a: `En ${comunaName} ofrecemos limpieza de casas, departamentos, oficinas, alfombras, sillones, colchones, cortinas, tapicería de autos, Airbnb y hoteles, post obra, vidrios y ventanas, tapiz de paredes, frentes de casas, baños, parques, muebles, camas, y limpieza para clínicas, gyms y escuelas. También limpiamos desastres de mascotas y hacemos limpieza después de fiestas o eventos.` },
+    { q: "¿Limpian desastres que realizan las mascotas?", a: "Sí, limpiamos desastres de mascotas como orina, heces, vómito y manchas difíciles en alfombras, sillones, colchones y pisos. Nuestro sistema de vapor elimina la mancha, desinfecta y neutraliza olores en profundidad." },
+    { q: "¿Hacen limpieza después de fiestas o eventos?", a: "Sí, ofrecemos limpieza completa después de fiestas, reuniones y eventos. Retiramos restos de comida, bebidas derramadas, manchas en muebles y alfombras, limpiamos baños, cocina y todas las áreas afectadas." },
+    { q: "¿Limpian frentes de casas, paredes, ventanas y parques?", a: "Sí, realizamos limpieza de frentes de casas, fachadas, paredes, ventanas, vidrios, y áreas exteriores como parques, jardines y patios." },
   ];
 
   const handleFormSubmit = (e: React.FormEvent) => {

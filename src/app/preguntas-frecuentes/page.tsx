@@ -52,7 +52,31 @@ const FAQS = [
   },
   {
     q: "¿Qué servicios de limpieza ofrecen?",
-    a: "Ofrecemos 12 servicios profesionales: limpieza de casas y departamentos, oficinas, alfombras, sillones y tapicería, colchones, cortinas, tapicería de autos, Airbnb y hoteles, post obra, vidrios y ventanas, tapiz de paredes, y limpieza para clínicas, gyms y escuelas.",
+    a: "Ofrecemos una amplia variedad de servicios de limpieza a vapor: limpieza de casas y departamentos, oficinas, alfombras, sillones y tapicería, colchones, cortinas, tapicería de autos, Airbnb y hoteles, post obra, vidrios y ventanas, tapiz de paredes, frentes de casas, baños, parques, y limpieza para clínicas, gyms y escuelas. Además limpiamos muebles, camas, paredes y ventanas.",
+  },
+  {
+    q: "¿Limpian desastres que realizan las mascotas?",
+    a: "Sí, limpiamos desastres de mascotas como orina, heces, vómito y manchas difíciles en alfombras, sillones, colchones y pisos. Nuestro sistema de vapor no solo elimina la mancha visible, sino que también desinfecta y neutraliza olores en profundidad, dejando el área completamente higienizada y libre de bacterias.",
+  },
+  {
+    q: "¿Hacen limpieza después de fiestas o eventos?",
+    a: "Sí, ofrecemos limpieza completa después de fiestas, reuniones y eventos. Retiramos restos de comida, bebidas derramadas, manchas en muebles y alfombras, limpiamos baños, cocina y todas las áreas afectadas. Dejamos tu espacio impecable para que no tengas que preocuparte por nada al día siguiente.",
+  },
+  {
+    q: "¿Limpian hoteles y propiedades de Airbnb?",
+    a: "Sí, tenemos un servicio especializado para hoteles, Airbnb y alojamientos turísticos. Realizamos limpieza profesional por cada cambio de huésped, incluyendo desinfección completa con vapor, cambio de ropa de cama, limpieza de baños, cocina y áreas comunes. Emitimos informes detallados para el anfitrión.",
+  },
+  {
+    q: "¿Limpian frentes de casas, paredes y ventanas?",
+    a: "Sí, realizamos limpieza de frentes de casas, fachadas, paredes exteriores e interiores, ventanas y vidrios. Eliminamos suciedad acumulada, manchas de humedad, polvo contaminante y mugre. También limpiamos tapiz de paredes con inyección y extracción a vapor, recuperando su apariencia original.",
+  },
+  {
+    q: "¿Limpian parques o áreas exteriores?",
+    a: "Sí, ofrecemos limpieza de áreas exteriores como parques, jardines, patios y terrazas. Limpiamos superficies de madera, stone, cerámica y concreto. También realizamos limpieza de muebles de exterior que hayan acumulado suciedad por exposición a la intemperie.",
+  },
+  {
+    q: "¿Limpian tapicería de autos, alfombras, muebles, cortinas, camas y colchones?",
+    a: "Sí, estos son algunos de nuestros servicios más solicitados. Limpiamos la tapicería completa de autos (asientos, alfombras, techo y paneles), alfombras de todo tipo y tamaño, muebles de tela y cuero, cortinas sin desmontar, camas y colchones con desinfección profunda que elimina el 99% de ácaros y bacterias.",
   },
   {
     q: "¿Cuánto tiempo de secado necesita después de la limpieza a vapor?",
@@ -245,8 +269,8 @@ export default function PreguntasFrecuentesPage() {
       <style jsx>{`
         .sticky-bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; background: transparent; padding: 0; pointer-events: none; }
         .big-buttons-container { display: flex; gap: 0; pointer-events: auto; }
-        .btn-massive-call { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 12px; font-size: 15px; font-weight: 700; background: #059669; color: white; text-decoration: none; transition: background 0.2s; }
-        .btn-massive-call:hover { background: #047857; }
+        .btn-massive-call { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 12px; font-size: 15px; font-weight: 700; background: #0EA5E9; color: white; text-decoration: none; transition: background 0.2s; }
+        .btn-massive-call:hover { background: #0284C7; }
         .btn-massive-wa { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 12px; font-size: 15px; font-weight: 700; background: #25D366; color: white; text-decoration: none; transition: background 0.2s; }
         .btn-massive-wa:hover { background: #1da851; }
       `}</style>

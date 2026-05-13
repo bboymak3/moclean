@@ -163,9 +163,10 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
             </Link>
             <nav className="hidden md:flex items-center gap-1">
               <Link href="/" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Inicio</Link>
+              <Link href="/quienes-somos" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Quiénes Somos</Link>
               <a href="#servicios" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Servicios</a>
-              <a href="#faq" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Preguntas</a>
-              <a href="#contacto" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Contacto</a>
+              <Link href="/preguntas-frecuentes" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Preguntas</Link>
+              <Link href="/contacto" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Contacto</Link>
               <Button onClick={() => window.open(whatsappUrl, "_blank")} className="ml-3 bg-emerald-600 hover:bg-emerald-700 text-white" size="sm">
                 <Phone className="w-4 h-4 mr-1" /> Cotizar
               </Button>
@@ -176,10 +177,11 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
           </div>
           {mobileMenu && (
             <nav className="md:hidden pb-4 border-t border-emerald-100 mt-2 pt-4 flex flex-col gap-1">
-              <Link href="/" className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Inicio</Link>
+              <Link href="/" onClick={() => setMobileMenu(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Inicio</Link>
+              <Link href="/quienes-somos" onClick={() => setMobileMenu(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Quiénes Somos</Link>
               <a href="#servicios" onClick={() => setMobileMenu(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Servicios</a>
-              <a href="#faq" onClick={() => setMobileMenu(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Preguntas</a>
-              <a href="#contacto" onClick={() => setMobileMenu(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Contacto</a>
+              <Link href="/preguntas-frecuentes" onClick={() => setMobileMenu(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Preguntas</Link>
+              <Link href="/contacto" onClick={() => setMobileMenu(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Contacto</Link>
               <Button onClick={() => window.open(whatsappUrl, "_blank")} className="mt-2 bg-emerald-600 hover:bg-emerald-700 text-white">
                 <Phone className="w-4 h-4 mr-2" /> Cotizar por WhatsApp
               </Button>

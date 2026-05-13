@@ -8,6 +8,32 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- Páginas informativas -->
+  <url>
+    <loc>https://limpiezaadomicilio.pages.dev/quienes-somos</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://limpiezaadomicilio.pages.dev/contacto</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://limpiezaadomicilio.pages.dev/preguntas-frecuentes</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://limpiezaadomicilio.pages.dev/politicas-de-privacidad</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
   <!-- Páginas de comunas -->
   <url>
     <loc>https://limpiezaadomicilio.pages.dev/comunas/alhue</loc>

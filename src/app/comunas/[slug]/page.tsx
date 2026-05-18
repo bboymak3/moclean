@@ -18,12 +18,12 @@ export async function generateMetadata({
 
   if (!comuna) {
     return {
-      title: "Comuna no encontrada | ÁtomoClean",
+      title: "Comuna no encontrada | Limpieza24/7",
       description: "La comuna que buscas no se encuentra disponible.",
     };
   }
 
-  const title = `Limpieza a Domicilio en ${comuna.name} | ÁtomoClean`;
+  const title = `Limpieza a Domicilio en ${comuna.name} | Limpieza24/7`;
   const description = `Servicio profesional de limpieza a domicilio con aspiradora a vapor en ${comuna.name}, Santiago. Alfombras, sillones, colchones, cortinas, autos y más. Cotiza gratis al +56 9 4034 9957.`;
 
   return {
@@ -36,7 +36,7 @@ export async function generateMetadata({
       locale: "es_CL",
     },
     alternates: {
-      canonical: `https://atomoclean.com/comunas/${comuna.slug}`,
+      canonical: `https://limpieza247.com/comunas/${comuna.slug}`,
     },
   };
 }

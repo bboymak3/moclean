@@ -91,13 +91,13 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
   const [formData, setFormData] = useState({ nombre: "", telefono: "", correo: "", mensaje: "", servicio: "" });
   const [formSent, setFormSent] = useState(false);
 
-  const whatsappText = encodeURIComponent(`Hola ÁtomoClean, quiero cotizar un servicio de limpieza en ${comunaName}`);
+  const whatsappText = encodeURIComponent(`Hola Limpieza24/7, quiero cotizar un servicio de limpieza en ${comunaName}`);
   const whatsappUrl = `https://wa.me/56940349957?text=${whatsappText}`;
 
   const relatedComunas = getRelatedComunas(comunaSlug, 6);
 
   const faqs = [
-    { q: `¿Atienden limpieza a domicilio en ${comunaName}?`, a: `Sí, ÁtomoClean atiende en ${comunaName} y toda la Región Metropolitana. Nuestro equipo llega a tu domicilio con todo el equipamiento necesario para realizar el servicio de limpieza a vapor que necesites.` },
+    { q: `¿Atienden limpieza a domicilio en ${comunaName}?`, a: `Sí, Limpieza24/7 atiende en ${comunaName} y toda la Región Metropolitana. Nuestro equipo llega a tu domicilio con todo el equipamiento necesario para realizar el servicio de limpieza a vapor que necesites.` },
     { q: `¿Cuánto cuesta la limpieza a domicilio en ${comunaName}?`, a: `Los precios varían según el tipo de servicio, tamaño del espacio y nivel de suciedad. Cotiza gratis enviándonos un WhatsApp o llamando al +56 9 4034 9957. Te daremos un presupuesto sin compromiso.` },
     { q: "¿Cómo funciona el servicio de limpieza a vapor?", a: "Utilizamos equipos profesionales de aspiradora a vapor que inyectan vapor de alta temperatura en las fibras y superficies. El vapor disuelve la suciedad, elimina bacterias, ácaros y gérmenes, y luego se extrae con succión potente." },
     { q: `¿Qué tan rápido pueden llegar a ${comunaName}?`, a: "Normalmente podemos agendar el servicio en un plazo de 24 a 48 horas. Para emergencias, atendemos las 24 horas del día, los 7 días de la semana en toda la Región Metropolitana." },
@@ -126,11 +126,11 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            name: "ÁtomoClean",
+            name: "Limpieza24/7",
             description: `Servicio de limpieza a domicilio con aspiradora a vapor en ${comunaName}, Santiago de Chile.`,
-            url: "https://atomoclean.com",
+            url: "https://limpieza247.com",
             telephone: "+56940349957",
-            email: "contacto@atomoclean.com",
+            email: "contacto@limpieza247.com",
             address: {
               "@type": "PostalAddress",
               streetAddress: "Av. Vicuña Mackenna 2362",
@@ -161,8 +161,8 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-2">
-              <img src="/atomoclean-logo.png" alt="ÁtomoClean" className="w-10 h-10 rounded-full" />
-              <span className="text-xl font-bold text-emerald-800 tracking-tight">ÁtomoClean</span>
+              <img src="/limpieza247-logo.png" alt="Limpieza24/7" className="w-10 h-10 rounded-full" />
+              <span className="text-xl font-bold text-emerald-800 tracking-tight">Limpieza24/7</span>
             </Link>
             <nav className="hidden md:flex items-center gap-1">
               <Link href="/" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Inicio</Link>
@@ -298,7 +298,7 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
                       ))}
                     </ul>
                     <Separator className="my-4 bg-gray-100" />
-                    <Button variant="ghost" className="w-full text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50 text-sm p-0 h-auto" onClick={() => window.open(`https://wa.me/56940349957?text=Hola%20ÁtomoClean%2C%20quiero%20cotizar%20${encodeURIComponent(service.title)}%20en%20${encodeURIComponent(comunaName)}`, "_blank")}>
+                    <Button variant="ghost" className="w-full text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50 text-sm p-0 h-auto" onClick={() => window.open(`https://wa.me/56940349957?text=Hola%20Limpieza24%2F7%2C%20quiero%20cotizar%20${encodeURIComponent(service.title)}%20en%20${encodeURIComponent(comunaName)}`, "_blank")}>
                       Cotizar en {comunaName} <ArrowRight className="ml-1 w-4 h-4" />
                     </Button>
                   </CardContent>
@@ -314,8 +314,8 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <Badge className="mb-3 bg-emerald-100 text-emerald-700 border-emerald-200">Quiénes Somos</Badge>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Somos ÁtomoClean</h2>
-                <p className="text-gray-600 leading-relaxed mb-4">En <strong>ÁtomoClean</strong> somos una empresa de limpieza profesional con sede en Santiago de Chile, especializada en servicios de limpieza a domicilio con aspiradora a vapor.</p>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Somos Limpieza24/7</h2>
+                <p className="text-gray-600 leading-relaxed mb-4">En <strong>Limpieza24/7</strong> somos una empresa de limpieza profesional con sede en Santiago de Chile, especializada en servicios de limpieza a domicilio con aspiradora a vapor.</p>
                 <p className="text-gray-600 leading-relaxed mb-4">Nos diferenciamos por utilizar equipos profesionales de inyección y extracción a vapor que eliminan el 99% de bacterias, ácaros y gérmenes sin necesidad de productos químicos agresivos.</p>
                 <p className="text-gray-600 leading-relaxed mb-6">Con más de <strong>2.000 hogares atendidos</strong> en Santiago y alrededores, contamos con un equipo de profesionales certificados que se adaptan a cada necesidad, incluyendo {comunaName}.</p>
                 <div className="grid grid-cols-2 gap-4">
@@ -350,7 +350,7 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
             <div className="text-center mb-14">
               <Badge className="mb-3 bg-emerald-100 text-emerald-700 border-emerald-200">Testimonios</Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Lo que dicen nuestros clientes</h2>
-              <p className="text-lg text-gray-600 max-w-xl mx-auto">Más de 2.000 hogares en Santiago confían en ÁtomoClean.</p>
+              <p className="text-lg text-gray-600 max-w-xl mx-auto">Más de 2.000 hogares en Santiago confían en Limpieza24/7.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {TESTIMONIALS.map((t) => (
@@ -405,7 +405,7 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center"><Mail className="w-5 h-5 text-emerald-300" /></div>
-                    <div><p className="text-emerald-200 text-sm">Correo Electrónico</p><a href="mailto:contacto@atomoclean.com" className="text-white font-semibold hover:text-emerald-300 transition-colors">contacto@atomoclean.com</a></div>
+                    <div><p className="text-emerald-200 text-sm">Correo Electrónico</p><a href="mailto:contacto@limpieza247.com" className="text-white font-semibold hover:text-emerald-300 transition-colors">contacto@limpieza247.com</a></div>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center"><MapPin className="w-5 h-5 text-emerald-300" /></div>
@@ -478,8 +478,8 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <Link href="/" className="flex items-center gap-2 mb-4">
-                <img src="/atomoclean-logo.png" alt="ÁtomoClean" className="w-8 h-8 rounded-full" />
-                <span className="text-lg font-bold text-white">ÁtomoClean</span>
+                <img src="/limpieza247-logo.png" alt="Limpieza24/7" className="w-8 h-8 rounded-full" />
+                <span className="text-lg font-bold text-white">Limpieza24/7</span>
               </Link>
               <p className="text-sm text-gray-400 leading-relaxed">Limpieza a domicilio con aspiradora a vapor en Santiago de Chile.</p>
             </div>
@@ -499,14 +499,14 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
               <h4 className="font-semibold text-white mb-4">Contacto</h4>
               <div className="space-y-3 text-sm">
                 <p className="flex items-center gap-2"><Phone className="w-4 h-4 text-emerald-400" /> +56 9 4034 9957</p>
-                <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-emerald-400" /> contacto@atomoclean.com</p>
+                <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-emerald-400" /> contacto@limpieza247.com</p>
                 <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-emerald-400" /> Av. Vicuña Mackenna 2362, Ñuñoa</p>
               </div>
             </div>
           </div>
           <Separator className="my-8 bg-gray-800" />
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-            <p>&copy; 2024 ÁtomoClean. Todos los derechos reservados.</p>
+            <p>&copy; 2024 Limpieza24/7. Todos los derechos reservados.</p>
             <Link href="/" className="hover:text-emerald-400 transition-colors">Volver al inicio</Link>
           </div>
         </div>

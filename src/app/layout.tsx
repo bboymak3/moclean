@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ÁtomoClean - Limpieza a Domicilio con Aspiradora a Vapor en Santiago",
+  title: "Limpieza24/7 - Limpieza a Domicilio con Aspiradora a Vapor en Santiago",
   description:
     "Servicio profesional de limpieza a domicilio con aspiradora a vapor en Santiago de Chile. Alfombras, sillones, colchones, cortinas, autos, Airbnb, casas, oficinas y más. Cotiza gratis.",
   keywords: [
@@ -30,12 +30,12 @@ export const metadata: Metadata = {
     "tapicería a vapor",
     "limpieza profunda",
     "limpieza a vapor Santiago",
-    "ÁtomoClean",
+    "Limpieza24/7",
     "aseo a domicilio Chile",
   ],
-  authors: [{ name: "ÁtomoClean" }],
+  authors: [{ name: "Limpieza24/7" }],
   openGraph: {
-    title: "ÁtomoClean - Limpieza a Domicilio con Aspiradora a Vapor en Santiago",
+    title: "Limpieza24/7 - Limpieza a Domicilio con Aspiradora a Vapor en Santiago",
     description:
       "Servicio profesional de limpieza a domicilio con aspiradora a vapor. Atendemos casas, departamentos, oficinas, Airbnb y más en Santiago de Chile.",
     type: "website",

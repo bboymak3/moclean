@@ -41,6 +41,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_CL",
   },
+  verification: {
+    google: "AO8x2D5digAhJVNmj0wVdeJx60EpOc56vELa9rh_CmY",
+  },
 };
 
 export default function RootLayout({
@@ -50,6 +53,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
+      <head>
+        <meta name="google-site-verification" content="AO8x2D5digAhJVNmj0wVdeJx60EpOc56vELa9rh_CmY" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >

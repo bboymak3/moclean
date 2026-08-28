@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Limpieza24/7 - Limpieza a Domicilio con Aspiradora a Vapor en Santiago",
+  title: "Limpieza24/7 - Limpieza a Domicilio Profesional en Santiago de Chile",
   description:
-    "Servicio profesional de limpieza a domicilio con aspiradora a vapor en Santiago de Chile. Alfombras, sillones, colchones, cortinas, autos, Airbnb, casas, oficinas y más. Cotiza gratis.",
+    "Servicio profesional de limpieza a domicilio en Santiago de Chile. Alfombras, sillones, colchones, cortinas, autos, Airbnb, casas, oficinas, post obra y más. Trabajo a mano, productos ecológicos. Cotiza gratis al +56 9 4034 9957.",
   keywords: [
     "limpieza a domicilio",
-    "aspiradora a vapor",
+    "limpieza profesional Santiago",
     "limpieza de alfombras",
     "limpieza de sillones",
     "limpieza de colchones",
@@ -27,17 +27,16 @@ export const metadata: Metadata = {
     "limpieza Airbnb",
     "limpieza post obra",
     "limpieza de oficinas",
-    "tapicería a vapor",
+    "tapicería profesional",
     "limpieza profunda",
-    "limpieza a vapor Santiago",
-    "Limpieza24/7",
     "aseo a domicilio Chile",
+    "Limpieza24/7",
   ],
   authors: [{ name: "Limpieza24/7" }],
   openGraph: {
-    title: "Limpieza24/7 - Limpieza a Domicilio con Aspiradora a Vapor en Santiago",
+    title: "Limpieza24/7 - Limpieza a Domicilio Profesional en Santiago de Chile",
     description:
-      "Servicio profesional de limpieza a domicilio con aspiradora a vapor. Atendemos casas, departamentos, oficinas, Airbnb y más en Santiago de Chile.",
+      "Servicio profesional de limpieza a domicilio en Santiago. Atendemos casas, departamentos, oficinas, Airbnb y más en la Región Metropolitana.",
     type: "website",
     locale: "es_CL",
   },

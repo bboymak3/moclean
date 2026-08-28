@@ -31,8 +31,11 @@ import {
   CheckCircle2,
   Send,
   ArrowRight,
+  Camera,
 } from "lucide-react";
 import { COMUNAS, COMUNAS_DESTACADAS } from "@/lib/comunas-data";
+import { SERVICES } from "@/lib/services-data";
+import { ImageGallery } from "@/components/image-gallery";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -51,170 +54,14 @@ import { Separator } from "@/components/ui/separator";
 
 const NAV_LINKS = [
   { label: "Inicio", href: "#inicio" },
+  { label: "Galería", href: "/galeria" },
   { label: "Servicios", href: "#servicios" },
+  { label: "Comunas", href: "#comunas" },
   { label: "Quiénes Somos", href: "/quienes-somos" },
   { label: "Preguntas", href: "/preguntas-frecuentes" },
   { label: "Contacto", href: "/contacto" },
 ];
 
-const SERVICES = [
-  {
-    icon: HomeIcon,
-    title: "Limpieza de Casas y Departamentos",
-    keyword: "Limpieza de casas a domicilio",
-    slug: "limpieza-casas-departamentos",
-    text: "Servicio de limpieza profunda y de rutina para casas y departamentos en Santiago. Nuestro equipo especializado utiliza aspiradora a vapor para eliminar el 99% de bacterias y ácaros, dejando cada rincón impecable sin usar productos químicos agresivos.",
-    features: [
-      "Limpieza de dormitorios, baños, cocina y living",
-      "Aspirado profundo con tecnología a vapor",
-      "Productos ecológicos y seguros para tu familia",
-      "Flexibilidad de horarios adaptada a ti",
-    ],
-  },
-  {
-    icon: Building2,
-    title: "Limpieza de Oficinas",
-    keyword: "Limpieza de oficinas a domicilio",
-    slug: "limpieza-oficinas",
-    text: "Mantenemos tu entorno de trabajo limpio, higiénico y productivo. Ofrecemos planes de limpieza semanal o quincenal para oficinas en Santiago, adaptándonos a tus horarios para no interrumpir las operaciones diarias de tu negocio.",
-    features: [
-      "Planes de mantenimiento semanal o quincenal",
-      "Desinfección de superficies de alto contacto",
-      "Limpieza de zonas comunes y baños",
-      "Horarios personalizados fuera de horario laboral",
-    ],
-  },
-  {
-    icon: Sparkles,
-    title: "Limpieza de Alfombras",
-    keyword: "Limpieza de alfombras a vapor",
-    slug: "limpieza-alfombras",
-    text: "Recupera la frescura y apariencia original de tus alfombras con nuestra limpieza profesional a vapor. Eliminamos suciedad incrustada, manchas difíciles, ácaros y alérgenos, dejando tus alfombras sanitizadas, limpias y listas para uso inmediato.",
-    features: [
-      "Tecnología de inyección y extracción a vapor",
-      "Eliminación de ácaros, bacterias y malos olores",
-      "Tratamiento de manchas difíciles y pigmentación",
-      "Servicio para alfombras de muro a muro y decorativas",
-    ],
-  },
-  {
-    icon: Armchair,
-    title: "Limpieza de Sillones y Tapicería",
-    keyword: "Limpieza de sillones y tapicería",
-    slug: "limpieza-sillones-tapiceria",
-    text: "Devolvé la vida a tus sillones, sofás y toda la tapicería del hogar o auto. Nuestro sistema de limpieza a vapor penetra profundamente en las fibras, eliminando manchas, ácaros, bacterias y olores sin mojar ni dañar los tejidos.",
-    features: [
-      "Limpieza profunda de sofás, sillones y sillas",
-      "Eliminación de ácaros y bacterias en fibras",
-      "Sin humedad excesiva: secado rápido",
-      "Seguro para todo tipo de telas y materiales",
-    ],
-  },
-  {
-    icon: Bed,
-    title: "Limpieza de Colchones",
-    keyword: "Limpieza de colchones a vapor",
-    slug: "limpieza-colchones",
-    text: "Desinfección profunda de colchones con tecnología a vapor. Eliminamos ácaros, bacterias, hongos y manchas que se acumulan con el tiempo. Tu colchón queda higienizado, desodorizado y listo para un descanso saludable sin productos químicos.",
-    features: [
-      "Eliminación del 99% de ácaros y bacterias",
-      "Desodorización natural con vapor",
-      "Secado rápido y sin residuos húmedos",
-      "Recomendado para alérgicos y personas con asma",
-    ],
-  },
-  {
-    icon: Wind,
-    title: "Limpieza de Cortinas",
-    keyword: "Limpieza de cortinas a domicilio",
-    slug: "limpieza-cortinas",
-    text: "Limpieza profesional de cortinas y visillos sin necesidad de desmontarlos. Nuestro sistema a vapor elimina polvo, alérgenos, manchas y olores incrustados, devolviendo la frescura y color original a tus cortinas de forma rápida y segura.",
-    features: [
-      "Limpieza sin desmontar: ahorra tiempo y esfuerzo",
-      "Eliminación de polvo y ácaros acumulados",
-      "Cuidado de telas delicadas y gruesas",
-      "Resultado inmediato sin tiempos de espera largos",
-    ],
-  },
-  {
-    icon: Car,
-    title: "Limpieza de Tapicería de Autos",
-    keyword: "Limpieza de tapicería de autos",
-    slug: "limpieza-autos",
-    text: "Limpieza profesional de la tapicería completa de tu vehículo a domicilio. Asientos, alfombras, techo y paneles quedan impecables con nuestro sistema de vapor que elimina manchas, olores, bacterias y ácaros sin dañar los materiales del auto.",
-    features: [
-      "Asientos de tela, cuero y mixtos",
-      "Alfombras y tapetes del vehículo",
-      "Techo, paneles y portamaletas",
-      "Eliminación de olores de mascotas y tabaco",
-    ],
-  },
-  {
-    icon: Hotel,
-    title: "Limpieza para Airbnb y Hoteles",
-    keyword: "Limpieza a vapor para Airbnb",
-    slug: "limpieza-airbnb-hoteles",
-    text: "Servicio especializado para propiedades de Airbnb, hoteles y alojamientos turísticos en Santiago. Garantizamos un estándar de limpieza impecable para cada cambio de huésped, con desinfección a vapor que asegura un espacio seguro y hospitalario.",
-    features: [
-      "Limpieza estándar profesional por cambio de huésped",
-      "Desinfección completa con tecnología a vapor",
-      "Lavado de ropa de cama y toallas incluido",
-      "Informes detallados post-limpieza para el anfitrión",
-    ],
-  },
-  {
-    icon: HardHat,
-    title: "Limpieza Post Obra",
-    keyword: "Limpieza post obra construcción",
-    slug: "limpieza-post-obra",
-    text: "Retiramos polvo, escombros, manchas de pintura, cemento y residuos de construcción tras cualquier reforma u obra. Dejamos tu nuevo espacio completamente limpio, desinfectado y listo para habitar, decorar o entregar sin preocupaciones.",
-    features: [
-      "Retiro de polvo fino y escombros",
-      "Limpieza de manchas de pintura y cemento",
-      "Desinfección completa del espacio nuevo",
-      "Listo para habitabilidad inmediata",
-    ],
-  },
-  {
-    icon: GlassWater,
-    title: "Limpieza de Vidrios y Ventanas",
-    keyword: "Limpieza de vidrios ventanas",
-    slug: "limpieza-vidrios-ventanas",
-    text: "Removemos manchas, polvo, marcas de agua y suciedad de todos tus vidrios y ventanas. Nuestro servicio deja cada cristal impecable y transparente, mejorando la luminosidad y apariencia de tu hogar u oficina en Santiago.",
-    features: [
-      "Vidrios interiores y exteriores",
-      "Marcos y rieles de ventanas",
-      "Eliminación de manchas de agua y cal",
-      "Espejos y mamparas de baño",
-    ],
-  },
-  {
-    icon: Frame,
-    title: "Limpieza de Tapiz de Paredes",
-    keyword: "Limpieza de tapiz paredes",
-    slug: "limpieza-tapiz-paredes",
-    text: "Limpieza especializada de tapices murales con tecnología de inyección y extracción. Recuperamos la apariencia original de tus tapices de pared eliminando bacterias, manchas, olores y polvo acumulado, prolongando su vida útil y belleza.",
-    features: [
-      "Inyección y extracción profesional de vapor",
-      "Eliminación de bacterias y hongos en paredes",
-      "Tratamiento anti-manchas y pigmentación",
-      "Secado rápido sin dañar la estructura del tapiz",
-    ],
-  },
-  {
-    icon: ShieldCheck,
-    title: "Limpieza para Clínicas, Gyms y Escuelas",
-    keyword: "Limpieza de clínicas gimnasios",
-    slug: "limpieza-clinicas-gyms-escuelas",
-    text: "Desinfección profesional para espacios de alta circulación como clínicas, consultorios, gimnasios y escuelas. Nuestro sistema de vapor elimina patógenos, virus y bacterias sin químicos agresivos, creando ambientes seguros e higiénicos para todas las personas.",
-    features: [
-      "Desinfección hospitalaria con tecnología a vapor",
-      "Eliminación de virus, gérmenes y bacterias",
-      "Sin químicos agresivos: seguro para pacientes y niños",
-      "Planes de mantenimiento periódico adaptados",
-    ],
-  },
-];
 
 const FAQS = [
   {
@@ -222,15 +69,15 @@ const FAQS = [
     a: "Atendemos en toda la Región Metropolitana, incluyendo Ñuñoa, Providencia, Las Condes, Vitacura, La Reina, Peñalolén, Macul, San Miguel, Santiago Centro, La Florida, Puente Alto y comunas cercanas. Si estás en otra ubicación, consúltanos y te confirmamos disponibilidad.",
   },
   {
-    q: "¿Cómo funciona el servicio de limpieza a vapor?",
-    a: "Utilizamos equipos profesionales de aspiradora a vapor que inyectan vapor de alta temperatura en las fibras y superficies. El vapor disuelve la suciedad, elimina bacterias, ácaros y germenes, y luego se extrae con succión potente. Es un método ecológico que no requiere productos químicos agresivos.",
+    q: "¿Cómo funciona el servicio de limpieza profesional?",
+    a: "Utilizamos equipos profesionales de aspiradora profesional que combinamos con técnicas manuales para tratar fibras y superficies en profundidad. Aplicamos productos ecológicos, dejamos actuar y luego extraemos la suciedad con succión potente. Es un método ecológico que no requiere químicos agresivos.",
   },
   {
     q: "¿Cuánto tiempo toma la limpieza de un sillón o alfombra?",
     a: "El tiempo varía según el tamaño y estado del artículo. Un sillón individual toma aproximadamente 30-40 minutos, una alfombra estándar entre 45-60 minutos, y un sofá completo de 3 plazas entre 60-90 minutos. Te daremos un tiempo estimado al momento de cotizar.",
   },
   {
-    q: "¿La limpieza a vapor daña los tejidos o materiales?",
+    q: "¿La limpieza profesional daña los tejidos o materiales?",
     a: "No. Nuestro equipo profesional está calibrado para ser seguro en todo tipo de materiales: telas, cuero, microfibra, alfombras de lana, sintéticas y más. Nuestro personal está capacitado para identificar el tipo de material y ajustar la técnica y temperatura adecuadas.",
   },
   {
@@ -259,7 +106,7 @@ const FAQS = [
   },
   {
     q: "¿Limpian desastres que realizan las mascotas?",
-    a: "Sí, limpiamos desastres de mascotas como orina, heces, vómito y manchas difíciles en alfombras, sillones, colchones y pisos. Nuestro sistema de vapor elimina la mancha, desinfecta y neutraliza olores en profundidad, dejando el área completamente higienizada.",
+    a: "Sí, limpiamos desastres de mascotas como orina, heces, vómito y manchas difíciles en alfombras, sillones, colchones y pisos. Nuestro sistema manual profesional elimina la mancha, desinfecta y neutraliza olores en profundidad, dejando el área completamente higienizada.",
   },
   {
     q: "¿Hacen limpieza después de fiestas o eventos?",
@@ -296,7 +143,7 @@ const TESTIMONIALS = [
   },
   {
     name: "Roberto Silva",
-    text: "Me limpiaron las alfombras de toda la casa con vapor. Quedaron espectaculares y sin olores. El servicio fue rápido y el equipo muy amable. Gran experiencia.",
+    text: "Me limpiaron las alfombras de toda la casa profesionalmente. Quedaron espectaculares y sin olores. El servicio fue rápido y el equipo muy amable. Gran experiencia.",
     rating: 5,
     service: "Limpieza de alfombras",
   },
@@ -509,11 +356,11 @@ export default function Home() {
                 🟢 Disponibles 24/7 en Santiago
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Limpieza a Domicilio con{" "}
-                <span className="text-emerald-300">Aspiradora a Vapor</span>
+                Limpieza a Domicilio en{" "}
+                <span className="text-emerald-300">Santiago de Chile</span>
               </h1>
               <p className="text-lg md:text-xl text-emerald-100 mb-8 leading-relaxed max-w-2xl">
-                Servicio profesional de limpieza a vapor para alfombras, sillones, colchones,
+                Servicio profesional de limpieza a mano para alfombras, sillones, colchones,
                 cortinas, autos y más. Cotiza en un minuto, reserva en dos.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -612,6 +459,42 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ─── GALERIA DE PROYECTOS ─── */}
+        <section id="galeria" className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14">
+              <Badge className="mb-3 bg-emerald-100 text-emerald-700 border-emerald-200">
+                <Camera className="w-3.5 h-3.5 mr-1.5" />
+                Galería de Proyectos
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Trabajos de Limpieza Realizados en Santiago
+              </h2>
+              <p className="text-base text-gray-600 max-w-2xl mx-auto">
+                Fotos reales de servicios completados en la Región Metropolitana.
+                Trabajo profesional a mano, productos ecológicos y resultados impecables.
+              </p>
+            </div>
+
+            {/* Galería desplegable con filtros + lightbox */}
+            <ImageGallery limit={12} />
+
+            <div className="mt-10 text-center">
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-emerald-300 text-emerald-700 hover:bg-emerald-50"
+              >
+                <Link href="/galeria">
+                  <Camera className="mr-2 h-5 w-5" />
+                  Ver galería completa
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
         {/* ─── SERVICES ─── */}
         <section id="servicios" className="py-20 bg-gradient-to-b from-white to-emerald-50/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -624,7 +507,7 @@ export default function Home() {
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 Descubre nuestra propuesta de valor para servicios de aseo a domicilio en Santiago de Chile.
-                Limpieza profunda con aspiradora a vapor para cada necesidad.
+                Limpieza profunda con aspiración profesional manual para cada necesidad.
               </p>
             </div>
 
@@ -693,7 +576,7 @@ export default function Home() {
               <Badge className="mb-3 bg-emerald-100 text-emerald-700 border-emerald-200">Cobertura</Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Zonas que Atendemos</h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Brindamos servicios de limpieza a vapor a domicilio en toda la Región Metropolitana. Selecciona tu comuna para más información.
+                Brindamos servicios de limpieza profesional a domicilio en toda la Región Metropolitana. Selecciona tu comuna para más información.
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3">
@@ -735,12 +618,12 @@ export default function Home() {
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
                   En <strong>Limpieza24/7</strong> somos una empresa de limpieza profesional con sede en Santiago
-                  de Chile, especializada en servicios de limpieza a domicilio con aspiradora a vapor. Nuestra
+                  de Chile, especializada en servicios de limpieza a domicilio con aspiración profesional manual. Nuestra
                   misión es transformar los espacios de nuestros clientes mediante tecnología de vanguardia y un
                   equipo altamente capacitado.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Nos diferenciamos por utilizar equipos profesionales de inyección y extracción a vapor que
+                  Nos diferenciamos por utilizar equipos profesionales de inyección y extracción profesional que
                   eliminan el 99% de bacterias, ácaros y germenes sin necesidad de productos químicos
                   agresivos. Esto nos permite ofrecer un servicio que cuida la salud de tu familia, tus
                   mascotas y el medio ambiente.
@@ -859,7 +742,7 @@ export default function Home() {
                 Preguntas Frecuentes
               </h2>
               <p className="text-lg text-gray-600">
-                Resolvemos tus dudas sobre nuestros servicios de limpieza a vapor.
+                Resolvemos tus dudas sobre nuestros servicios de limpieza profesional.
               </p>
             </div>
             <div className="space-y-3">
@@ -1131,7 +1014,7 @@ export default function Home() {
                 <span className="text-lg font-bold text-white">Limpieza24/7</span>
               </div>
               <p className="text-sm text-gray-400 leading-relaxed">
-                Limpieza a domicilio con aspiradora a vapor en Santiago de Chile.
+                Limpieza a domicilio con aspiración profesional manual en Santiago de Chile.
                 Hogares, oficinas, autos y más.
               </p>
             </div>

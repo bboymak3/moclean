@@ -50,25 +50,25 @@ import { COMUNAS, getRelatedComunas } from "@/lib/comunas-data";
 /* ───────────────────────── DATA ─────────────────────────── */
 
 const SERVICES = [
-  { icon: HomeIcon, title: "Limpieza de Casas y Departamentos", keyword: "Limpieza de casas a domicilio", slug: "limpieza-casas-departamentos", text: "Servicio de limpieza profunda y de rutina para casas y departamentos. Nuestro equipo especializado utiliza aspiradora a vapor para eliminar el 99% de bacterias y ácaros, dejando cada rincón impecable.", features: ["Limpieza de dormitorios, baños, cocina y living", "Aspirado profundo con tecnología a vapor", "Productos ecológicos y seguros para tu familia", "Flexibilidad de horarios adaptada a ti"] },
+  { icon: HomeIcon, title: "Limpieza de Casas y Departamentos", keyword: "Limpieza de casas a domicilio", slug: "limpieza-casas-departamentos", text: "Servicio de limpieza profunda y de rutina para casas y departamentos. Nuestro equipo especializado utiliza aspiración profesional y trabajo manual para eliminar el 99% de bacterias y ácaros, dejando cada rincón impecable.", features: ["Limpieza de dormitorios, baños, cocina y living", "Aspirado profundo con técnicas manuales profesionales", "Productos ecológicos y seguros para tu familia", "Flexibilidad de horarios adaptada a ti"] },
   { icon: Building2, title: "Limpieza de Oficinas", keyword: "Limpieza de oficinas a domicilio", slug: "limpieza-oficinas", text: "Mantenemos tu entorno de trabajo limpio, higiénico y productivo. Ofrecemos planes de limpieza semanal o quincenal para oficinas, adaptándonos a tus horarios.", features: ["Planes de mantenimiento semanal o quincenal", "Desinfección de superficies de alto contacto", "Limpieza de zonas comunes y baños", "Horarios personalizados"] },
-  { icon: Sparkles, title: "Limpieza de Alfombras", keyword: "Limpieza de alfombras a vapor", slug: "limpieza-alfombras", text: "Recupera la frescura y apariencia original de tus alfombras con nuestra limpieza profesional a vapor. Eliminamos suciedad incrustada, manchas difíciles, ácaros y alérgenos.", features: ["Tecnología de inyección y extracción a vapor", "Eliminación de ácaros, bacterias y malos olores", "Tratamiento de manchas difíciles", "Servicio para todo tipo de alfombras"] },
-  { icon: Armchair, title: "Limpieza de Sillones y Tapicería", keyword: "Limpieza de sillones y tapicería", slug: "limpieza-sillones-tapiceria", text: "Devolvé la vida a tus sillones, sofás y toda la tapicería. Nuestro sistema de limpieza a vapor penetra profundamente en las fibras, eliminando manchas y ácaros.", features: ["Limpieza profunda de sofás y sillones", "Eliminación de ácaros y bacterias en fibras", "Sin humedad excesiva: secado rápido", "Seguro para todo tipo de telas"] },
-  { icon: Bed, title: "Limpieza de Colchones", keyword: "Limpieza de colchones a vapor", slug: "limpieza-colchones", text: "Desinfección profunda de colchones con tecnología a vapor. Eliminamos ácaros, bacterias, hongos y manchas que se acumulan con el tiempo.", features: ["Eliminación del 99% de ácaros y bacterias", "Desodorización natural con vapor", "Secado rápido y sin residuos", "Recomendado para alérgicos"] },
-  { icon: Wind, title: "Limpieza de Cortinas", keyword: "Limpieza de cortinas a domicilio", slug: "limpieza-cortinas", text: "Limpieza profesional de cortinas y visillos sin necesidad de desmontarlos. Nuestro sistema a vapor elimina polvo, alérgenos, manchas y olores.", features: ["Limpieza sin desmontar", "Eliminación de polvo y ácaros", "Cuidado de telas delicadas", "Resultado inmediato"] },
+  { icon: Sparkles, title: "Limpieza de Alfombras", keyword: "Limpieza de alfombras profesional", slug: "limpieza-alfombras", text: "Recupera la frescura y apariencia original de tus alfombras con nuestra limpieza profesional profesional. Eliminamos suciedad incrustada, manchas difíciles, ácaros y alérgenos.", features: ["Sistema manual de inyección y extracción profesional", "Eliminación de ácaros, bacterias y malos olores", "Tratamiento de manchas difíciles", "Servicio para todo tipo de alfombras"] },
+  { icon: Armchair, title: "Limpieza de Sillones y Tapicería", keyword: "Limpieza de sillones y tapicería", slug: "limpieza-sillones-tapiceria", text: "Devolvé la vida a tus sillones, sofás y toda la tapicería. Nuestro sistema manual de limpieza penetra profundamente en las fibras, eliminando manchas y ácaros.", features: ["Limpieza profunda de sofás y sillones", "Eliminación de ácaros y bacterias en fibras", "Sin humedad excesiva: secado rápido", "Seguro para todo tipo de telas"] },
+  { icon: Bed, title: "Limpieza de Colchones", keyword: "Limpieza de colchones profesional", slug: "limpieza-colchones", text: "Desinfección profunda de colchones con técnicas manuales profesionales. Eliminamos ácaros, bacterias, hongos y manchas que se acumulan con el tiempo.", features: ["Eliminación del 99% de ácaros y bacterias", "Desodorización natural con productos ecológicos", "Secado rápido y sin residuos", "Recomendado para alérgicos"] },
+  { icon: Wind, title: "Limpieza de Cortinas", keyword: "Limpieza de cortinas a domicilio", slug: "limpieza-cortinas", text: "Limpieza profesional de cortinas y visillos sin necesidad de desmontarlos. Nuestro sistema manual elimina polvo, alérgenos, manchas y olores.", features: ["Limpieza sin desmontar", "Eliminación de polvo y ácaros", "Cuidado de telas delicadas", "Resultado inmediato"] },
   { icon: Car, title: "Limpieza de Tapicería de Autos", keyword: "Limpieza de tapicería de autos", slug: "limpieza-autos", text: "Limpieza profesional de la tapicería completa de tu vehículo a domicilio. Asientos, alfombras, techo y paneles quedan impecables.", features: ["Asientos de tela, cuero y mixtos", "Alfombras y tapetes del vehículo", "Techo, paneles y portamaletas", "Eliminación de olores de mascotas y tabaco"] },
-  { icon: Hotel, title: "Limpieza para Airbnb y Hoteles", keyword: "Limpieza a vapor para Airbnb", slug: "limpieza-airbnb-hoteles", text: "Servicio especializado para propiedades de Airbnb, hoteles y alojamientos turísticos. Garantizamos un estándar de limpieza impecable para cada cambio de huésped.", features: ["Limpieza profesional por cambio de huésped", "Desinfección completa con tecnología a vapor", "Lavado de ropa de cama incluido", "Informes detallados post-limpieza"] },
+  { icon: Hotel, title: "Limpieza para Airbnb y Hoteles", keyword: "Limpieza profesional para Airbnb", slug: "limpieza-airbnb-hoteles", text: "Servicio especializado para propiedades de Airbnb, hoteles y alojamientos turísticos. Garantizamos un estándar de limpieza impecable para cada cambio de huésped.", features: ["Limpieza profesional por cambio de huésped", "Desinfección completa con técnicas manuales profesionales", "Lavado de ropa de cama incluido", "Informes detallados post-limpieza"] },
   { icon: HardHat, title: "Limpieza Post Obra", keyword: "Limpieza post obra construcción", slug: "limpieza-post-obra", text: "Retiramos polvo, escombros, manchas de pintura, cemento y residuos de construcción tras cualquier reforma u obra.", features: ["Retiro de polvo fino y escombros", "Limpieza de manchas de pintura y cemento", "Desinfección completa del espacio", "Listo para habitabilidad inmediata"] },
   { icon: GlassWater, title: "Limpieza de Vidrios y Ventanas", keyword: "Limpieza de vidrios ventanas", slug: "limpieza-vidrios-ventanas", text: "Removemos manchas, polvo, marcas de agua y suciedad de todos tus vidrios y ventanas, dejando cada cristal impecable.", features: ["Vidrios interiores y exteriores", "Marcos y rieles de ventanas", "Eliminación de manchas de agua y cal", "Espejos y mamparas de baño"] },
   { icon: Frame, title: "Limpieza de Tapiz de Paredes", keyword: "Limpieza de tapiz paredes", slug: "limpieza-tapiz-paredes", text: "Limpieza especializada de tapices murales con tecnología de inyección y extracción. Recuperamos la apariencia original de tus tapices.", features: ["Inyección y extracción profesional", "Eliminación de bacterias y hongos", "Tratamiento anti-manchas", "Secado rápido sin dañar"] },
-  { icon: ShieldCheck, title: "Limpieza para Clínicas, Gyms y Escuelas", keyword: "Limpieza de clínicas gimnasios", slug: "limpieza-clinicas-gyms-escuelas", text: "Desinfección profesional para espacios de alta circulación como clínicas, gimnasios y escuelas. Nuestro sistema de vapor elimina patógenos sin químicos agresivos.", features: ["Desinfección hospitalaria con vapor", "Eliminación de virus y bacterias", "Sin químicos agresivos", "Planes de mantenimiento periódico"] },
+  { icon: ShieldCheck, title: "Limpieza para Clínicas, Gyms y Escuelas", keyword: "Limpieza de clínicas gimnasios", slug: "limpieza-clinicas-gyms-escuelas", text: "Desinfección profesional para espacios de alta circulación como clínicas, gimnasios y escuelas. Nuestro sistema manual elimina patógenos sin químicos agresivos.", features: ["Desinfección hospitalaria con técnicas profesionales", "Eliminación de virus y bacterias", "Sin químicos agresivos", "Planes de mantenimiento periódico"] },
 ];
 
 const TESTIMONIALS = [
   { name: "María González", text: "Excelente servicio. Limpiaron mi sofá y quedó como nuevo. Muy puntuales y profesionales. Los recomiendo 100%.", rating: 5, service: "Limpieza de sillones" },
   { name: "Carlos Muñoz", text: "Contraté la limpieza post obra de mi departamento y quedó impecable. Muy eficientes y el precio fue justo.", rating: 5, service: "Limpieza post obra" },
   { name: "Ana López", text: "Uso el servicio para mi Airbnb cada vez que cambia un huésped. Los huéspedes siempre destacan lo limpio que está.", rating: 5, service: "Limpieza Airbnb" },
-  { name: "Roberto Silva", text: "Me limpiaron las alfombras de toda la casa con vapor. Quedaron espectaculares y sin olores.", rating: 5, service: "Limpieza de alfombras" },
+  { name: "Roberto Silva", text: "Me limpiaron las alfombras de toda la casa profesionalmente. Quedaron espectaculares y sin olores.", rating: 5, service: "Limpieza de alfombras" },
 ];
 
 const STATS = [
@@ -97,15 +97,15 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
   const relatedComunas = getRelatedComunas(comunaSlug, 6);
 
   const faqs = [
-    { q: `¿Atienden limpieza a domicilio en ${comunaName}?`, a: `Sí, Limpieza24/7 atiende en ${comunaName} y toda la Región Metropolitana. Nuestro equipo llega a tu domicilio con todo el equipamiento necesario para realizar el servicio de limpieza a vapor que necesites.` },
+    { q: `¿Atienden limpieza a domicilio en ${comunaName}?`, a: `Sí, Limpieza24/7 atiende en ${comunaName} y toda la Región Metropolitana. Nuestro equipo llega a tu domicilio con todo el equipamiento necesario para realizar el servicio de limpieza profesional que necesites.` },
     { q: `¿Cuánto cuesta la limpieza a domicilio en ${comunaName}?`, a: `Los precios varían según el tipo de servicio, tamaño del espacio y nivel de suciedad. Cotiza gratis enviándonos un WhatsApp o llamando al +56 9 4034 9957. Te daremos un presupuesto sin compromiso.` },
-    { q: "¿Cómo funciona el servicio de limpieza a vapor?", a: "Utilizamos equipos profesionales de aspiradora a vapor que inyectan vapor de alta temperatura en las fibras y superficies. El vapor disuelve la suciedad, elimina bacterias, ácaros y gérmenes, y luego se extrae con succión potente." },
+    { q: "¿Cómo funciona el servicio de limpieza profesional?", a: "Utilizamos equipos profesionales de aspiración profesional que combinamos con técnicas manuales para tratar fibras y superficies en profundidad. Aplicamos productos ecológicos, dejamos actuar y luego extraemos la suciedad con succión potente." },
     { q: `¿Qué tan rápido pueden llegar a ${comunaName}?`, a: "Normalmente podemos agendar el servicio en un plazo de 24 a 48 horas. Para emergencias, atendemos las 24 horas del día, los 7 días de la semana en toda la Región Metropolitana." },
-    { q: "¿La limpieza a vapor daña los tejidos o materiales?", a: "No. Nuestro equipo profesional está calibrado para ser seguro en todo tipo de materiales: telas, cuero, microfibra, alfombras de lana, sintéticas y más." },
+    { q: "¿La limpieza profesional daña los tejidos o materiales?", a: "No. Nuestro equipo profesional está calibrado para ser seguro en todo tipo de materiales: telas, cuero, microfibra, alfombras de lana, sintéticas y más." },
     { q: "¿Ofrecen boleta o factura?", a: "Sí, emitimos boleta o factura según tu requerimiento. Solo indícalo al momento de solicitar tu cotización." },
     { q: "¿El servicio tiene garantía?", a: "Sí, todos nuestros servicios cuentan con garantía de satisfacción. Si no quedas conforme con el resultado, volvemos a realizar el servicio sin costo adicional." },
     { q: `¿Qué servicios de limpieza ofrecen en ${comunaName}?`, a: `En ${comunaName} ofrecemos limpieza de casas, departamentos, oficinas, alfombras, sillones, colchones, cortinas, tapicería de autos, Airbnb y hoteles, post obra, vidrios y ventanas, tapiz de paredes, frentes de casas, baños, parques, muebles, camas, y limpieza para clínicas, gyms y escuelas. También limpiamos desastres de mascotas y hacemos limpieza después de fiestas o eventos.` },
-    { q: "¿Limpian desastres que realizan las mascotas?", a: "Sí, limpiamos desastres de mascotas como orina, heces, vómito y manchas difíciles en alfombras, sillones, colchones y pisos. Nuestro sistema de vapor elimina la mancha, desinfecta y neutraliza olores en profundidad." },
+    { q: "¿Limpian desastres que realizan las mascotas?", a: "Sí, limpiamos desastres de mascotas como orina, heces, vómito y manchas difíciles en alfombras, sillones, colchones y pisos. Nuestro sistema manual elimina la mancha, desinfecta y neutraliza olores en profundidad." },
     { q: "¿Hacen limpieza después de fiestas o eventos?", a: "Sí, ofrecemos limpieza completa después de fiestas, reuniones y eventos. Retiramos restos de comida, bebidas derramadas, manchas en muebles y alfombras, limpiamos baños, cocina y todas las áreas afectadas." },
     { q: "¿Limpian frentes de casas, paredes, ventanas y parques?", a: "Sí, realizamos limpieza de frentes de casas, fachadas, paredes, ventanas, vidrios, y áreas exteriores como parques, jardines y patios." },
   ];
@@ -127,7 +127,7 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "Limpieza24/7",
-            description: `Servicio de limpieza a domicilio con aspiradora a vapor en ${comunaName}, Santiago de Chile.`,
+            description: `Servicio de limpieza a domicilio con aspiración profesional en ${comunaName}, Santiago de Chile.`,
             url: "https://limpieza247.com",
             telephone: "+56940349957",
             email: "contacto@limpieza247.com",
@@ -222,7 +222,7 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
                 <span className="text-emerald-300">{comunaName}</span>
               </h1>
               <p className="text-lg md:text-xl text-emerald-100 mb-8 leading-relaxed max-w-2xl">
-                Servicio profesional de limpieza a vapor para alfombras, sillones, colchones, cortinas, autos y más en {comunaName}. Cotiza en un minuto, reserva en dos.
+                Servicio profesional de limpieza profesional para alfombras, sillones, colchones, cortinas, autos y más en {comunaName}. Cotiza en un minuto, reserva en dos.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-white text-emerald-800 hover:bg-emerald-50 font-semibold text-base px-8" onClick={() => document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" })}>
@@ -274,7 +274,7 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
             <div className="text-center mb-14">
               <Badge className="mb-3 bg-emerald-100 text-emerald-700 border-emerald-200">Nuestros Servicios</Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Limpieza Profesional a Domicilio en {comunaName}</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">Descubre nuestra propuesta de valor para servicios de aseo a domicilio en {comunaName}. Limpieza profunda con aspiradora a vapor para cada necesidad.</p>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">Descubre nuestra propuesta de valor para servicios de aseo a domicilio en {comunaName}. Limpieza profunda con aspiración profesional para cada necesidad.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {SERVICES.map((service) => (
@@ -315,8 +315,8 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
               <div>
                 <Badge className="mb-3 bg-emerald-100 text-emerald-700 border-emerald-200">Quiénes Somos</Badge>
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Somos Limpieza24/7</h2>
-                <p className="text-gray-600 leading-relaxed mb-4">En <strong>Limpieza24/7</strong> somos una empresa de limpieza profesional con sede en Santiago de Chile, especializada en servicios de limpieza a domicilio con aspiradora a vapor.</p>
-                <p className="text-gray-600 leading-relaxed mb-4">Nos diferenciamos por utilizar equipos profesionales de inyección y extracción a vapor que eliminan el 99% de bacterias, ácaros y gérmenes sin necesidad de productos químicos agresivos.</p>
+                <p className="text-gray-600 leading-relaxed mb-4">En <strong>Limpieza24/7</strong> somos una empresa de limpieza profesional con sede en Santiago de Chile, especializada en servicios de limpieza a domicilio con aspiración profesional.</p>
+                <p className="text-gray-600 leading-relaxed mb-4">Nos diferenciamos por utilizar equipos profesionales de inyección y extracción profesional que eliminan el 99% de bacterias, ácaros y gérmenes sin necesidad de productos químicos agresivos.</p>
                 <p className="text-gray-600 leading-relaxed mb-6">Con más de <strong>2.000 hogares atendidos</strong> en Santiago y alrededores, contamos con un equipo de profesionales certificados que se adaptan a cada necesidad, incluyendo {comunaName}.</p>
                 <div className="grid grid-cols-2 gap-4">
                   {["Plataforma de gestión de reservas", "Garantía en todos nuestros servicios", "Canal de atención excepcional", "Emergencias de limpieza 24/7", "Compromiso con el medio ambiente", "Feedback post-servicio"].map((item) => (
@@ -374,7 +374,7 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
             <div className="text-center mb-14">
               <Badge className="mb-3 bg-emerald-100 text-emerald-700 border-emerald-200">FAQ</Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Preguntas Frecuentes sobre Limpieza en {comunaName}</h2>
-              <p className="text-lg text-gray-600">Resolvemos tus dudas sobre nuestros servicios de limpieza a vapor.</p>
+              <p className="text-lg text-gray-600">Resolvemos tus dudas sobre nuestros servicios de limpieza profesional.</p>
             </div>
             <div className="space-y-3">
               {faqs.map((faq, idx) => (
@@ -454,7 +454,7 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-10">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Otras comunas donde atendemos</h2>
-              <p className="text-gray-600">Servicio de limpieza a vapor en más comunas de la Región Metropolitana.</p>
+              <p className="text-gray-600">Servicio de limpieza profesional en más comunas de la Región Metropolitana.</p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
               {relatedComunas.map((c) => (
@@ -481,7 +481,7 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
                 <img src="/limpieza247-logo.png" alt="Limpieza24/7" className="w-8 h-8 rounded-full" />
                 <span className="text-lg font-bold text-white">Limpieza24/7</span>
               </Link>
-              <p className="text-sm text-gray-400 leading-relaxed">Limpieza a domicilio con aspiradora a vapor en Santiago de Chile.</p>
+              <p className="text-sm text-gray-400 leading-relaxed">Limpieza a domicilio con aspiración profesional en Santiago de Chile.</p>
             </div>
             <div>
               <h4 className="font-semibold text-white mb-4">Servicios</h4>

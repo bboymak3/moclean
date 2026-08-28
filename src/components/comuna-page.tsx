@@ -1,7 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+// FIX: Mapa interactivo de comunas (lazy-loaded para evitar SSR issues con Leaflet)
+const ComunasMap = dynamic(
+  () => import("@/components/comunas-map").then((m) => m.ComunasMap),
+  {
+    ssr: false,
+    loading: () => (
+      <div style={{ height: 450, background: "#f0fdf4" }} className="flex items-center justify-center rounded-2xl border-2 border-emerald-100">
+        <div className="text-emerald-600">Cargando mapa...</div>
+      </div>
+    ),
+  }
+);
 import {
   Home as HomeIcon,
   Building2,
@@ -97,17 +111,24 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
   const relatedComunas = getRelatedComunas(comunaSlug, 6);
 
   const faqs = [
-    { q: `¿Atienden limpieza a domicilio en ${comunaName}?`, a: `Sí, Limpieza24/7 atiende en ${comunaName} y toda la Región Metropolitana. Nuestro equipo llega a tu domicilio con todo el equipamiento necesario para realizar el servicio de limpieza profesional que necesites.` },
-    { q: `¿Cuánto cuesta la limpieza a domicilio en ${comunaName}?`, a: `Los precios varían según el tipo de servicio, tamaño del espacio y nivel de suciedad. Cotiza gratis enviándonos un WhatsApp o llamando al +56 9 4034 9957. Te daremos un presupuesto sin compromiso.` },
-    { q: "¿Cómo funciona el servicio de limpieza profesional?", a: "Utilizamos equipos profesionales de aspiración profesional que combinamos con técnicas manuales para tratar fibras y superficies en profundidad. Aplicamos productos ecológicos, dejamos actuar y luego extraemos la suciedad con succión potente." },
-    { q: `¿Qué tan rápido pueden llegar a ${comunaName}?`, a: "Normalmente podemos agendar el servicio en un plazo de 24 a 48 horas. Para emergencias, atendemos las 24 horas del día, los 7 días de la semana en toda la Región Metropolitana." },
-    { q: "¿La limpieza profesional daña los tejidos o materiales?", a: "No. Nuestro equipo profesional está calibrado para ser seguro en todo tipo de materiales: telas, cuero, microfibra, alfombras de lana, sintéticas y más." },
-    { q: "¿Ofrecen boleta o factura?", a: "Sí, emitimos boleta o factura según tu requerimiento. Solo indícalo al momento de solicitar tu cotización." },
-    { q: "¿El servicio tiene garantía?", a: "Sí, todos nuestros servicios cuentan con garantía de satisfacción. Si no quedas conforme con el resultado, volvemos a realizar el servicio sin costo adicional." },
+    { q: `¿Atienden limpieza a domicilio en ${comunaName}?`, a: `Sí, Limpieza24/7 atiende en ${comunaName} y toda la Región Metropolitana de Santiago de Chile. Nuestro equipo llega a tu domicilio con todo el equipamiento necesario para realizar el servicio de limpieza profesional que necesites. Cotiza gratis al +56 9 4034 9957.` },
+    { q: `¿Cuánto cuesta la limpieza a domicilio en ${comunaName}?`, a: `Los precios varían según el tipo de servicio, tamaño del espacio y nivel de suciedad. Ofrecemos precios transparentes y sin sorpresas. Cotiza gratis enviándonos un WhatsApp o llamando al +56 9 4034 9957. Te daremos un presupuesto sin compromiso.` },
+    { q: `¿Cómo funciona el servicio de limpieza profesional en ${comunaName}?`, a: "Utilizamos equipos profesionales de aspiración combinados con técnicas manuales para tratar fibras y superficies en profundidad. Aplicamos productos ecológicos, dejamos actuar y luego extraemos la suciedad con succión potente. Trabajo a mano, sin pistola de vapor." },
+    { q: `¿Qué tan rápido pueden llegar a ${comunaName}?`, a: `Normalmente podemos agendar el servicio en un plazo de 24 a 48 horas en ${comunaName}. Para emergencias, atendemos las 24 horas del día, los 7 días de la semana en toda la Región Metropolitana.` },
+    { q: `¿La limpieza profesional daña los tejidos o materiales en ${comunaName}?`, a: "No. Nuestro equipo profesional está calibrado para ser seguro en todo tipo de materiales: telas, cuero, microfibra, alfombras de lana, sintéticas y más. Nuestro personal está capacitado para identificar el tipo de material y ajustar la técnica adecuada." },
+    { q: "¿Ofrecen boleta o factura?", a: "Sí, emitimos boleta o factura según tu requerimiento. Solo indícalo al momento de solicitar tu cotización y te enviamos el comprobante tributario correspondiente una vez finalizado el servicio." },
+    { q: `¿El servicio de limpieza en ${comunaName} tiene garantía?`, a: "Sí, todos nuestros servicios cuentan con garantía de satisfacción. Si no quedas conforme con el resultado, volvemos a realizar el servicio sin costo adicional. Tu satisfacción es nuestra prioridad absoluta." },
     { q: `¿Qué servicios de limpieza ofrecen en ${comunaName}?`, a: `En ${comunaName} ofrecemos limpieza de casas, departamentos, oficinas, alfombras, sillones, colchones, cortinas, tapicería de autos, Airbnb y hoteles, post obra, vidrios y ventanas, tapiz de paredes, frentes de casas, baños, parques, muebles, camas, y limpieza para clínicas, gyms y escuelas. También limpiamos desastres de mascotas y hacemos limpieza después de fiestas o eventos.` },
-    { q: "¿Limpian desastres que realizan las mascotas?", a: "Sí, limpiamos desastres de mascotas como orina, heces, vómito y manchas difíciles en alfombras, sillones, colchones y pisos. Nuestro sistema manual elimina la mancha, desinfecta y neutraliza olores en profundidad." },
-    { q: "¿Hacen limpieza después de fiestas o eventos?", a: "Sí, ofrecemos limpieza completa después de fiestas, reuniones y eventos. Retiramos restos de comida, bebidas derramadas, manchas en muebles y alfombras, limpiamos baños, cocina y todas las áreas afectadas." },
-    { q: "¿Limpian frentes de casas, paredes, ventanas y parques?", a: "Sí, realizamos limpieza de frentes de casas, fachadas, paredes, ventanas, vidrios, y áreas exteriores como parques, jardines y patios." },
+    { q: `¿Puedo agendar el servicio para fin de semana en ${comunaName}?`, a: "Sí, tenemos disponibilidad de lunes a sábado en jornadas de mañana (desde las 9:00 hrs) y tarde (desde las 13:00 hrs). También atendemos emergencias las 24 horas. Agenda con anticipación para asegurar tu horario preferido." },
+    { q: `¿Limpian desastres de mascotas en ${comunaName}?`, a: "Sí, limpiamos desastres de mascotas como orina, heces, vómito y manchas difíciles en alfombras, sillones, colchones y pisos en " + comunaName + ". Nuestro sistema manual elimina la mancha, desinfecta y neutraliza olores en profundidad." },
+    { q: `¿Hacen limpieza después de fiestas o eventos en ${comunaName}?`, a: `Sí, ofrecemos limpieza completa después de fiestas, reuniones y eventos en ${comunaName}. Retiramos restos de comida, bebidas derramadas, manchas en muebles y alfombras, limpiamos baños, cocina y todas las áreas afectadas.` },
+    { q: `¿Limpian frentes de casas, paredes, ventanas y parques en ${comunaName}?`, a: `Sí, realizamos limpieza de frentes de casas, fachadas, paredes, ventanas, vidrios, y áreas exteriores como parques, jardines y patios en ${comunaName}.` },
+    { q: `¿Limpian tapicería de autos, alfombras, muebles, cortinas, camas y colchones en ${comunaName}?`, a: `Sí, estos son algunos de nuestros servicios más solicitados en ${comunaName}. Limpiamos la tapicería completa de autos, alfombras de todo tipo, muebles de tela y cuero, cortinas sin desmontar, camas y colchones con desinfección profunda que elimina el 99% de ácaros y bacterias.` },
+    { q: `¿Limpian hoteles, Airbnb, baños y tapiz de paredes en ${comunaName}?`, a: `Sí, limpiamos hoteles y Airbnb en ${comunaName} con servicio profesional por cambio de huésped. También realizamos limpieza de baños, frentes y fachadas de casas, paredes interiores y exteriores, ventanas y vidrios, tapiz de paredes, y áreas exteriores como parques y patios.` },
+    { q: `¿Qué debo preparar antes del servicio en ${comunaName}?`, a: "Solo necesitas tener accesible el área a limpiar y retirar objetos personales o frágiles de las superficies. Nuestro equipo llega con todo el equipamiento y productos necesarios. No necesitas proporcionar nada adicional." },
+    { q: `¿Atienden emergencias de limpieza en ${comunaName} las 24 horas?`, a: `Sí, somos el único servicio de limpieza en Santiago que atiende emergencias las 24 horas, los 7 días de la semana, incluyendo ${comunaName}. Llámanos al +56 9 4034 9957 y responderemos lo antes posible.` },
+    { q: `¿Cómo contrato el servicio de limpieza en ${comunaName}?`, a: `Puedes cotizar en segundos a través de nuestro formulario web, WhatsApp (+56 9 4034 9957) o llamándonos directamente. Te confirmamos disponibilidad y precio para tu servicio de limpieza a domicilio en ${comunaName}.` },
+    { q: `¿Qué zonas específicas de ${comunaName} cubren?`, a: `Atendemos en toda la comuna de ${comunaName}, incluyendo sectores residenciales, condominios, edificios, oficinas y áreas comerciales. Si tienes dudas sobre si llegamos a tu dirección específica, consúltanos por WhatsApp.` },
   ];
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -119,38 +140,37 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      {/* ─── JSON-LD ─── */}
+      {/* ─── JSON-LD LOCAL (complementario al del page.tsx) ─── */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            name: "Limpieza24/7",
-            description: `Servicio de limpieza a domicilio con aspiración profesional en ${comunaName}, Santiago de Chile.`,
-            url: "https://limpieza247.com",
-            telephone: "+56940349957",
-            email: "contacto@limpieza247.com",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "Av. Vicuña Mackenna 2362",
-              addressLocality: "Ñuñoa",
-              addressRegion: "Región Metropolitana",
-              addressCountry: "CL",
-            },
-            areaServed: {
-              "@type": "City",
-              name: comunaName,
-              containedInPlace: {
-                "@type": "AdministrativeArea",
-                name: "Región Metropolitana",
+            "@type": "AggregateRating",
+            ratingValue: "4.9",
+            reviewCount: "200",
+            bestRating: "5",
+            worstRating: "1",
+            itemReviewed: {
+              "@type": "LocalBusiness",
+              name: `Limpieza24/7 - Limpieza a Domicilio en ${comunaName}`,
+              telephone: "+56940349957",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Av. Vicuña Mackenna 2362",
+                addressLocality: comunaName,
+                addressRegion: "Región Metropolitana",
+                addressCountry: "CL",
               },
-            },
-            priceRange: "$$",
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "4.9",
-              reviewCount: "200",
+              areaServed: {
+                "@type": "City",
+                name: comunaName,
+                containedInPlace: {
+                  "@type": "AdministrativeArea",
+                  name: "Región Metropolitana",
+                },
+              },
+              priceRange: "$$",
             },
           }),
         }}
@@ -220,9 +240,14 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                 Limpieza a Domicilio en{" "}
                 <span className="text-emerald-300">{comunaName}</span>
+                <span className="block text-xl md:text-2xl mt-3 text-emerald-200 font-normal">
+                  Servicio Profesional a Mano en la Región Metropolitana de Santiago de Chile
+                </span>
               </h1>
               <p className="text-lg md:text-xl text-emerald-100 mb-8 leading-relaxed max-w-2xl">
-                Servicio profesional de limpieza profesional para alfombras, sillones, colchones, cortinas, autos y más en {comunaName}. Cotiza en un minuto, reserva en dos.
+                Servicio profesional de limpieza a mano para alfombras, sillones, colchones,
+                cortinas, autos, Airbnb, post obra y más en {comunaName}. Cotiza en un minuto,
+                reserva en dos. Productos ecológicos y garantía de satisfacción.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-white text-emerald-800 hover:bg-emerald-50 font-semibold text-base px-8" onClick={() => document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" })}>
@@ -367,6 +392,9 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
             </div>
           </div>
         </section>
+
+        {/* ─── MAPA DE COMUNAS QUE ATENDEMOS ─── */}
+        <ComunasMap />
 
         {/* ─── FAQ ─── */}
         <section id="faq" className="py-20 bg-white">

@@ -1,0 +1,61 @@
+// Coordenadas (lat, lng) de las comunas de la Región Metropolitana de Santiago de Chile.
+// Fuente: datos públicos de OpenStreetMap / SINIM.
+// Solo se incluyen las comunas presentes en COMUNAS (src/lib/comunas-data.ts).
+
+export interface Coord {
+  lat: number;
+  lng: number;
+}
+
+export const COMUNAS_COORDS: Record<string, Coord> = {
+  alhue: { lat: -33.8297, lng: -71.2108 },
+  buin: { lat: -33.7313, lng: -70.7411 },
+  "calera-de-tango": { lat: -33.8658, lng: -70.7819 },
+  cerrillos: { lat: -33.5025, lng: -70.7197 },
+  "cerro-navia": { lat: -33.4414, lng: -70.7406 },
+  colina: { lat: -33.2012, lng: -70.6747 },
+  conchali: { lat: -33.3858, lng: -70.6689 },
+  curacavi: { lat: -33.4089, lng: -71.1414 },
+  "el-bosque": { lat: -33.5564, lng: -70.6719 },
+  "el-monte": { lat: -33.6742, lng: -70.7825 },
+  "estacion-central": { lat: -33.4614, lng: -70.7039 },
+  huechuraba: { lat: -33.3708, lng: -70.6531 },
+  independencia: { lat: -33.4197, lng: -70.6639 },
+  "isla-de-maipo": { lat: -33.7544, lng: -70.8792 },
+  "la-cisterna": { lat: -33.5372, lng: -70.6781 },
+  "la-florida": { lat: -33.5286, lng: -70.5747 },
+  "la-granja": { lat: -33.5514, lng: -70.6281 },
+  "la-pintana": { lat: -33.5867, lng: -70.5861 },
+  "la-reina": { lat: -33.4472, lng: -70.5503 },
+  lampa: { lat: -33.2756, lng: -70.8769 },
+  "las-condes": { lat: -33.4181, lng: -70.5531 },
+  "lo-barnechea": { lat: -33.3544, lng: -70.5256 },
+  "lo-espejo": { lat: -33.5389, lng: -70.7108 },
+  "lo-prado": { lat: -33.4478, lng: -70.7256 },
+  macul: { lat: -33.4797, lng: -70.5986 },
+  maipu: { lat: -33.5181, lng: -70.7589 },
+  maria: { lat: -33.5064, lng: -70.5917 },
+  "melipilla": { lat: -33.6892, lng: -71.2189 },
+  "padre-hurtado": { lat: -33.5647, lng: -70.8039 },
+  paine: { lat: -33.7939, lng: -70.7356 },
+  pedro: { lat: -33.4642, lng: -70.6117 },
+  "penaflor": { lat: -33.6114, lng: -70.8858 },
+  "penalolen": { lat: -33.4989, lng: -70.5767 },
+  "pudahuel": { lat: -33.4269, lng: -70.7533 },
+  "puente-alto": { lat: -33.6167, lng: -70.575 },
+  "quilicura": { lat: -33.3536, lng: -70.7236 },
+  "quinta-normal": { lat: -33.4383, lng: -70.6997 },
+  "recoleta": { lat: -33.4069, lng: -70.6394 },
+  renca: { lat: -33.4036, lng: -70.7186 },
+  "san-bernardo": { lat: -33.5856, lng: -70.7003 },
+  "san-joaquin": { lat: -33.4908, lng: -70.6378 },
+  "san-jose-de-maipo": { lat: -33.6306, lng: -70.3556 },
+  "san-miguel": { lat: -33.4961, lng: -70.6533 },
+  "san-pedro": { lat: -33.6903, lng: -70.7083 },
+  "san-ramon": { lat: -33.5422, lng: -70.5756 },
+  santiago: { lat: -33.4489, lng: -70.6693 },
+  "til-til": { lat: -33.0833, lng: -70.9189 },
+  vitacura: { lat: -33.3969, lng: -70.6056 },
+  "providencia": { lat: -33.4436, lng: -70.6219 },
+  "nunoa": { lat: -33.4586, lng: -70.6033 },
+};

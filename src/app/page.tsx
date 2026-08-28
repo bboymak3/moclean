@@ -36,6 +36,7 @@ import {
 import { COMUNAS, COMUNAS_DESTACADAS } from "@/lib/comunas-data";
 import { SERVICES } from "@/lib/services-data";
 import { ImageGallery } from "@/components/image-gallery";
+import { ComunasMap } from "@/components/comunas-map";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -569,41 +570,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ─── ZONAS QUE ATENDEMOS ─── */}
-        <section className="py-16 bg-emerald-50/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-10">
-              <Badge className="mb-3 bg-emerald-100 text-emerald-700 border-emerald-200">Cobertura</Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Zonas que Atendemos</h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Brindamos servicios de limpieza profesional a domicilio en toda la Región Metropolitana. Selecciona tu comuna para más información.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3">
-              {COMUNAS_DESTACADAS.map((slug) => {
-                const comuna = COMUNAS.find((c) => c.slug === slug);
-                if (!comuna) return null;
-                return (
-                  <Link
-                    key={comuna.slug}
-                    href={`/comunas/${comuna.slug}`}
-                    className="block p-4 rounded-xl border border-emerald-100 hover:border-emerald-300 hover:bg-emerald-50 hover:shadow-md transition-all text-center group"
-                  >
-                    <MapPin className="w-5 h-5 text-emerald-500 mx-auto mb-2 group-hover:text-emerald-600" />
-                    <span className="text-sm font-medium text-gray-700 group-hover:text-emerald-700">
-                      {comuna.name}
-                    </span>
-                  </Link>
-                );
-              })}
-            </div>
-            <div className="mt-8 text-center">
-              <p className="text-sm text-gray-500 mb-3">
-                y más de 50 comunas en la Región Metropolitana
-              </p>
-            </div>
-          </div>
-        </section>
+        {/* ─── ZONAS QUE ATENDEMOS (MAPA INTERACTIVO) ─── */}
+        <ComunasMap />
 
         {/* ─── ABOUT US ─── */}
         <section id="nosotros" className="py-20 bg-white">

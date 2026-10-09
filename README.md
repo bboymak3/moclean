@@ -319,10 +319,10 @@ CLOUDFLARE_API_TOKEN=<token> npx wrangler pages deploy .vercel/output/static \
 
 ### Landing "Limpieza profunda detallada" (`/limpieza-profunda`)
 
-- Casas y deptos: pre y post mudanza, post obra, remodelaciones e inmuebles en mal estado. Desde $2.000 el m².
+- Casas y deptos: pre y post mudanza, post obra, remodelaciones e inmuebles en mal estado. El valor se cotiza según el tamaño del inmueble y la complejidad (sin precio publicado).
 - Secciones: qué incluye, cuándo se necesita, beneficios, cómo funciona, garantía, galería, FAQ (8 preguntas) y formulario "Cotiza tu servicio aquí".
 - El formulario (nombre, teléfono, correo, comuna, m², tipo de limpieza y mensaje) **abre WhatsApp con los datos ya escritos**, así la solicitud llega de verdad (el sitio no tiene backend).
-- JSON-LD `Service` (con precio por m²) + `FAQPage` + `BreadcrumbList`.
+- JSON-LD `Service` + `FAQPage` + `BreadcrumbList`.
 - Enlazada desde la foto promocional del inicio ("Ver qué incluye"), el footer de las páginas nuevas, el sitemap y el blog.
 
 ### Galería en las landings de comunas

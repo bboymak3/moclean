@@ -576,7 +576,7 @@ const POSTS: BlogPost[] = [
       { type: "h2", text: "¿Por qué contratar una limpieza post obra profesional?" },
       {
         type: "p",
-        text: "Porque es más larga y técnica que una limpieza de mantención: requiere aspiradoras adecuadas para polvo fino, productos específicos para restos de construcción y experiencia para no dañar terminaciones nuevas. Nosotros la hacemos a mano, por etapas y con productos ecológicos. Revisa el detalle en [limpieza post obra](/servicios/limpieza-post-obra) o en nuestra [limpieza profunda detallada](/limpieza-profunda) para casas y deptos, desde $2.000 el m².",
+        text: "Porque es más larga y técnica que una limpieza de mantención: requiere aspiradoras adecuadas para polvo fino, productos específicos para restos de construcción y experiencia para no dañar terminaciones nuevas. Nosotros la hacemos a mano, por etapas y con productos ecológicos. Revisa el detalle en [limpieza post obra](/servicios/limpieza-post-obra) o en nuestra [limpieza profunda detallada](/limpieza-profunda) para casas y deptos.",
       },
     ],
   },

@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+// Capa visual estilo iPhone (Liquid Glass). Se activa con data-skin="ios" en <html>.
+import "./ios-skin.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,6 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  // Base para que las imágenes de OpenGraph usen el dominio real (no localhost)
+  metadataBase: new URL("https://limpiezaadomicilio.pages.dev"),
   title: "Limpieza24/7 - Limpieza a Domicilio Profesional en Santiago de Chile",
   description:
     "Servicio profesional de limpieza a domicilio en Santiago de Chile. Alfombras, sillones, colchones, cortinas, autos, Airbnb, casas, oficinas, post obra y más. Trabajo a mano, productos ecológicos. Cotiza gratis al +56 9 4034 9957.",
@@ -43,6 +47,22 @@ export const metadata: Metadata = {
   verification: {
     google: "AO8x2D5digAhJVNmj0wVdeJx60EpOc56vELa9rh_CmY",
   },
+  // iPhone: se puede "Agregar a inicio" y se abre como una app
+  appleWebApp: {
+    capable: true,
+    title: "Limpieza24/7",
+    statusBarStyle: "default",
+  },
+  icons: {
+    apple: "/limpieza247-logo.png",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -51,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es" data-skin="ios" suppressHydrationWarning>
       <head>
         <meta name="google-site-verification" content="AO8x2D5digAhJVNmj0wVdeJx60EpOc56vELa9rh_CmY" />
       </head>

@@ -45,7 +45,9 @@ import {
   CheckCircle2,
   Send,
   ArrowRight,
+  Camera,
 } from "lucide-react";
+import { ImageGallery } from "@/components/image-gallery";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -186,8 +188,10 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
             </Link>
             <nav className="hidden md:flex items-center gap-1">
               <Link href="/" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Inicio</Link>
+              <Link href="/galeria" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Galería</Link>
               <Link href="/quienes-somos" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Quiénes Somos</Link>
               <a href="#servicios" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Servicios</a>
+              <Link href="/blog" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Blog</Link>
               <Link href="/preguntas-frecuentes" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Preguntas</Link>
               <Link href="/contacto" className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors">Contacto</Link>
               <Button onClick={() => window.open(whatsappUrl, "_blank")} className="ml-3 bg-emerald-600 hover:bg-emerald-700 text-white" size="sm">
@@ -201,8 +205,10 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
           {mobileMenu && (
             <nav className="md:hidden pb-4 border-t border-emerald-100 mt-2 pt-4 flex flex-col gap-1">
               <Link href="/" onClick={() => setMobileMenu(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Inicio</Link>
+              <Link href="/galeria" onClick={() => setMobileMenu(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Galería</Link>
               <Link href="/quienes-somos" onClick={() => setMobileMenu(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Quiénes Somos</Link>
               <a href="#servicios" onClick={() => setMobileMenu(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Servicios</a>
+              <Link href="/blog" onClick={() => setMobileMenu(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Blog</Link>
               <Link href="/preguntas-frecuentes" onClick={() => setMobileMenu(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Preguntas</Link>
               <Link href="/contacto" onClick={() => setMobileMenu(false)} className="px-4 py-3 text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg">Contacto</Link>
               <Button onClick={() => window.open(whatsappUrl, "_blank")} className="mt-2 bg-emerald-600 hover:bg-emerald-700 text-white">
@@ -289,6 +295,37 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
                   <div><h3 className="font-semibold text-gray-900 mb-1">{item.title}</h3><p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p></div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── GALERIA DE PROYECTOS (mismo modal de fotos que el inicio) ─── */}
+        <section id="galeria" className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14">
+              <Badge className="mb-3 bg-emerald-100 text-emerald-700 border-emerald-200">
+                <Camera className="w-3.5 h-3.5 mr-1.5" />
+                Galería de Proyectos
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Trabajos de Limpieza Realizados en Santiago
+              </h2>
+              <p className="text-base text-gray-600 max-w-2xl mx-auto">
+                Fotos reales de servicios completados en la Región Metropolitana. El mismo equipo,
+                trabajo profesional a mano y productos ecológicos que llevamos a {comunaName}.
+              </p>
+            </div>
+
+            {/* Galería desplegable con filtros + lightbox */}
+            <ImageGallery limit={12} />
+
+            <div className="mt-10 text-center">
+              <Button asChild size="lg" variant="outline" className="border-emerald-300 text-emerald-700 hover:bg-emerald-50">
+                <Link href="/galeria">
+                  <Camera className="mr-2 h-5 w-5" />
+                  Ver galería completa
+                </Link>
+              </Button>
             </div>
           </div>
         </section>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, ArrowLeft, CheckCircle2, Star, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SiteHeader } from "@/components/site-header";
 import { SERVICES } from "@/lib/services-data";
 import { ImageGallery } from "@/components/image-gallery";
 import { COMUNAS_DESTACADAS } from "@/lib/comunas-data";
@@ -132,6 +133,8 @@ export default async function ServicioPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
+
+      <SiteHeader />
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 py-16 text-white">

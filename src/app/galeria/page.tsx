@@ -4,6 +4,7 @@ import { GALLERY_IMAGES } from "@/lib/gallery-images";
 import Link from "next/link";
 import { ArrowLeft, Camera, Phone, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Galería de Proyectos de Limpieza en Santiago | Limpieza24/7",
@@ -27,6 +28,8 @@ export const metadata: Metadata = {
 export default function GaleriaPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-emerald-50/40 via-white to-emerald-50/30">
+      <SiteHeader active="/galeria" />
+
       {/* Hero */}
       <section className="bg-gradient-to-br from-emerald-900 via-emerald-800 to-teal-900 py-16 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

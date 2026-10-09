@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, MapPin, Clock } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { SERVICES } from "@/lib/services-data";
+import { GOOGLE_PROFILE_URL } from "@/lib/google-profile";
+import { GoogleIcon } from "@/components/google-profile";
 
 const COMPANY_LINKS = [
   { label: "Galería", href: "/galeria" },
@@ -61,9 +63,11 @@ export function SiteFooter() {
             <h4 className="font-semibold text-white mb-4">Contacto</h4>
             <div className="space-y-3 text-sm">
               <p className="flex items-center gap-2"><Phone className="w-4 h-4 text-emerald-400" /> +56 9 4034 9957</p>
-              <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-emerald-400" /> contacto@limpieza247.com</p>
               <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-emerald-400" /> Av. Vicuña Mackenna 2362, Ñuñoa</p>
               <p className="flex items-center gap-2"><Clock className="w-4 h-4 text-emerald-400" /> Lun - Sáb: 9:00 - 18:00</p>
+              <a href={GOOGLE_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-emerald-400 transition-colors">
+                <GoogleIcon className="h-4 w-4" /> Ver perfil en Google
+              </a>
             </div>
           </div>
         </div>

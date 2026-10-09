@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
 import { SERVICES } from "@/lib/services-data";
 import { ImageGallery } from "@/components/image-gallery";
+import { VideoGallery } from "@/components/video-gallery";
 import { COMUNAS_DESTACADAS } from "@/lib/comunas-data";
 
 export async function generateStaticParams() {
@@ -231,6 +232,9 @@ export default async function ServicioPage({
           <ImageGallery limit={8} showFilters={false} />
         </div>
       </section>
+
+      {/* Videos demostrativos */}
+      <VideoGallery />
 
       {/* Comunas donde servimos */}
       <section className="py-16">

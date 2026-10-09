@@ -337,6 +337,28 @@ CLOUDFLARE_API_TOKEN=<token> npx wrangler pages deploy .vercel/output/static \
 - Accesible desde el menú en **todas** las páginas (inicio, comunas, contacto, quiénes somos, preguntas, políticas, galería, servicios y el propio blog).
 - Componentes compartidos nuevos: `site-header.tsx`, `site-footer.tsx`, `sticky-contact-bar.tsx` y `components/blog/*`.
 
+### Videos demostrativos (modal de video)
+
+- 3 videos reales en `public/videos/`, renombrados con palabras clave (con portada `.jpg` del mismo nombre):
+  - `limpieza-de-sillones-a-domicilio-santiago-proceso.mp4` (vertical)
+  - `limpieza-de-sillones-a-domicilio-santiago-resultado.mp4`
+  - `limpieza-de-tapiz-agua-sucia-extraida-santiago.mp4`
+- Sección "Videos demostrativos" (`src/components/video-gallery.tsx`) con foto de encabezado `limpieza-de-sillon-a-domicilio-santiago-equipo-profesional.jpg`, tarjetas con portada y **modal de video** (flechas, teclado, swipe).
+- Presente en: inicio, galería, las 52 comunas ("Así trabajamos en {comuna}"), los 12 servicios y `/limpieza-profunda`.
+- JSON-LD `VideoObject` para que Google pueda mostrar los videos en resultados.
+- Datos en `src/lib/videos.ts`: para sumar un video basta con agregar un objeto al array.
+
+### Perfil de Google en todas las páginas
+
+- Botón flotante "Google" (sobre la barra LLAMAR / WHATSAPP) en **todas** las páginas, montado en `layout.tsx`.
+- Abre un modal (tipo hoja inferior en iPhone) con mapa de Google Maps embebido, dirección, horario, teléfono y botón de salida **"Ver perfil en Google"** → https://maps.app.goo.gl/hVnyzVoKUDEyAtcC7
+- Datos en `src/lib/google-profile.ts`; componente en `src/components/google-profile.tsx` (`openGoogleProfile()` abre el modal desde cualquier botón).
+- `/contacto` ahora es una landing de contacto explícita: botones WhatsApp / Llamar / Perfil de Google en el Hero, link "Ver en Google Maps" en la ubicación y sección "Encuéntranos en Google" con mapa.
+
+### Correo eliminado
+
+- Se quitó `contacto@limpieza247.com` (y "Te respondemos en un plazo máximo de 2 horas hábiles") de todas las páginas; el contacto es por WhatsApp, teléfono y perfil de Google.
+
 ### Sitemap actualizado
 
 | Tipo | Cantidad |

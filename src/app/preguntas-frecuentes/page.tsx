@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import {
-  Phone, Mail, MapPin, Menu, X, ChevronRight, ChevronDown, ChevronUp, ArrowRight,
+  Phone, MapPin, Menu, X, ChevronRight, ChevronDown, ChevronUp, ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -245,7 +245,6 @@ export default function PreguntasFrecuentesPage() {
               <h4 className="font-semibold text-white mb-4">Contacto</h4>
               <div className="space-y-3 text-sm">
                 <p className="flex items-center gap-2"><Phone className="w-4 h-4 text-emerald-400" /> +56 9 4034 9957</p>
-                <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-emerald-400" /> contacto@limpieza247.com</p>
                 <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-emerald-400" /> Av. Vicuña Mackenna 2362, Ñuñoa</p>
               </div>
             </div>

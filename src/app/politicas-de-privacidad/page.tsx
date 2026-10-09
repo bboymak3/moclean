@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import {
-  Phone, Mail, MapPin, Menu, X, ChevronRight, ShieldCheck,
+  Phone, MapPin, Menu, X, ChevronRight, ShieldCheck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -123,7 +123,7 @@ export default function PoliticasDePrivacidadPage() {
 
             <h3 className="text-xl font-bold text-gray-900 mt-10 mb-4">6. Derechos del titular de datos</h3>
             <p className="text-gray-600 leading-relaxed mb-4">
-              De acuerdo con la legislación chilena, tienes derecho a: acceder a la información personal que tenemos sobre ti, solicitar la corrección de datos inexactos o incompletos, solicitar la eliminación de tus datos personales cuando ya no sean necesarios para los fines para los cuales fueron recopilados, y oponerte al tratamiento de tus datos por motivos legítimos. Para ejercer cualquiera de estos derechos, puedes contactarnos a través de contacto@limpieza247.com o al teléfono +56 9 4034 9957.
+              De acuerdo con la legislación chilena, tienes derecho a: acceder a la información personal que tenemos sobre ti, solicitar la corrección de datos inexactos o incompletos, solicitar la eliminación de tus datos personales cuando ya no sean necesarios para los fines para los cuales fueron recopilados, y oponerte al tratamiento de tus datos por motivos legítimos. Para ejercer cualquiera de estos derechos, puedes contactarnos por WhatsApp o al teléfono +56 9 4034 9957.
             </p>
 
             <h3 className="text-xl font-bold text-gray-900 mt-10 mb-4">7. Retención de datos</h3>
@@ -141,7 +141,6 @@ export default function PoliticasDePrivacidadPage() {
               Si tienes preguntas, comentarios o solicitudes relacionadas con esta política de privacidad o el tratamiento de tus datos personales, no dudes en contactarnos:
             </p>
             <div className="bg-emerald-50 rounded-xl p-6 space-y-3 mb-8">
-              <p className="flex items-center gap-3 text-gray-700"><Mail className="w-5 h-5 text-emerald-600 flex-shrink-0" /> <strong>Email:</strong> contacto@limpieza247.com</p>
               <p className="flex items-center gap-3 text-gray-700"><Phone className="w-5 h-5 text-emerald-600 flex-shrink-0" /> <strong>Teléfono:</strong> +56 9 4034 9957</p>
               <p className="flex items-center gap-3 text-gray-700"><MapPin className="w-5 h-5 text-emerald-600 flex-shrink-0" /> <strong>Dirección:</strong> Av. Vicuña Mackenna 2362, Ñuñoa, Santiago, Región Metropolitana, Chile</p>
             </div>
@@ -181,7 +180,6 @@ export default function PoliticasDePrivacidadPage() {
               <h4 className="font-semibold text-white mb-4">Contacto</h4>
               <div className="space-y-3 text-sm">
                 <p className="flex items-center gap-2"><Phone className="w-4 h-4 text-emerald-400" /> +56 9 4034 9957</p>
-                <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-emerald-400" /> contacto@limpieza247.com</p>
                 <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-emerald-400" /> Av. Vicuña Mackenna 2362, Ñuñoa</p>
               </div>
             </div>

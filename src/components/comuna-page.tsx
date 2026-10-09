@@ -31,7 +31,6 @@ import {
   ShieldCheck,
   Star,
   Phone,
-  Mail,
   MapPin,
   Clock,
   ChevronDown,
@@ -63,6 +62,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { COMUNAS, getRelatedComunas, getComunaBannerSrc } from "@/lib/comunas-data";
 import { PromoFlyer } from "@/components/promo-flyer";
+import { VideoGallery } from "@/components/video-gallery";
 import { openWhatsApp } from "@/lib/whatsapp";
 
 /* ───────────────────────── DATA ─────────────────────────── */
@@ -356,6 +356,9 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
           </div>
         </section>
 
+        {/* ─── VIDEOS DEMOSTRATIVOS (modal de video) ─── */}
+        <VideoGallery comunaName={comunaName} />
+
         {/* ─── SERVICES ─── */}
         <section id="servicios" className="py-20 bg-gradient-to-b from-white to-emerald-50/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -495,10 +498,6 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
                     <div><p className="text-emerald-200 text-sm">Teléfono / WhatsApp</p><a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-white font-semibold hover:text-emerald-300 transition-colors">+56 9 4034 9957</a></div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center"><Mail className="w-5 h-5 text-emerald-300" /></div>
-                    <div><p className="text-emerald-200 text-sm">Correo Electrónico</p><a href="mailto:contacto@limpieza247.com" className="text-white font-semibold hover:text-emerald-300 transition-colors">contacto@limpieza247.com</a></div>
-                  </div>
-                  <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center"><MapPin className="w-5 h-5 text-emerald-300" /></div>
                     <div><p className="text-emerald-200 text-sm">Ubicación</p><p className="text-white font-semibold">Av. Vicuña Mackenna 2362, Ñuñoa, Santiago</p></div>
                   </div>
@@ -591,7 +590,6 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
               <h4 className="font-semibold text-white mb-4">Contacto</h4>
               <div className="space-y-3 text-sm">
                 <p className="flex items-center gap-2"><Phone className="w-4 h-4 text-emerald-400" /> +56 9 4034 9957</p>
-                <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-emerald-400" /> contacto@limpieza247.com</p>
                 <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-emerald-400" /> Av. Vicuña Mackenna 2362, Ñuñoa</p>
               </div>
             </div>

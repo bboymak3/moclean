@@ -17,7 +17,6 @@ import {
   ShieldCheck,
   Star,
   Phone,
-  Mail,
   MapPin,
   Clock,
   ChevronDown,
@@ -38,6 +37,7 @@ import { SERVICES } from "@/lib/services-data";
 import { ImageGallery } from "@/components/image-gallery";
 import { ComunasMap } from "@/components/comunas-map";
 import { PromoFlyer, PROMO_FLYER_SRC } from "@/components/promo-flyer";
+import { VideoGallery } from "@/components/video-gallery";
 import { openWhatsApp } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/button";
 import {
@@ -522,6 +522,9 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ─── VIDEOS DEMOSTRATIVOS (modal de video) ─── */}
+        <VideoGallery />
+
         {/* ─── SERVICES ─── */}
         <section id="servicios" className="py-20 bg-gradient-to-b from-white to-emerald-50/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -805,20 +808,6 @@ export default function Home() {
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-emerald-300" />
-                    </div>
-                    <div>
-                      <p className="text-emerald-200 text-sm">Correo Electrónico</p>
-                      <a
-                        href="mailto:contacto@limpieza247.com"
-                        className="text-white font-semibold hover:text-emerald-300 transition-colors"
-                      >
-                        contacto@limpieza247.com
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center">
                       <MapPin className="w-5 h-5 text-emerald-300" />
                     </div>
                     <div>
@@ -1066,10 +1055,6 @@ export default function Home() {
                 <p className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-emerald-400" />
                   +56 9 4034 9957
-                </p>
-                <p className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-emerald-400" />
-                  contacto@limpieza247.com
                 </p>
                 <p className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-emerald-400" />

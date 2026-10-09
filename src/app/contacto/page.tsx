@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { openWhatsApp } from "@/lib/whatsapp";
+import { GoogleIcon, openGoogleProfile } from "@/components/google-profile";
+import { GOOGLE_MAP_EMBED_URL, GOOGLE_PROFILE_URL } from "@/lib/google-profile";
 import {
-  Phone, Mail, MapPin, Clock, CheckCircle2,
+  Phone, MapPin, Clock, CheckCircle2,
   Send, Menu, X, ChevronRight, ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -118,6 +120,30 @@ export default function ContactoPage() {
               <p className="text-lg md:text-xl text-emerald-100 mb-8 leading-relaxed max-w-2xl">
                 Llena el formulario de contacto y reclama un 5% de descuento en cualquiera de nuestros servicios de limpieza a domicilio en Santiago.
               </p>
+              {/* Contacto directo */}
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://wa.me/56940349957?text=Hola%20Limpieza24%2F7%2C%20quiero%20cotizar%20un%20servicio%20de%20limpieza"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-semibold text-white shadow-lg transition-transform hover:scale-[1.02]"
+                >
+                  <Phone className="w-4 h-4" /> WhatsApp
+                </a>
+                <a
+                  href="tel:940349957"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-emerald-800 shadow-lg transition-transform hover:scale-[1.02]"
+                >
+                  <Phone className="w-4 h-4" /> Llamar +56 9 4034 9957
+                </a>
+                <button
+                  type="button"
+                  onClick={openGoogleProfile}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/15 px-5 py-3 text-sm font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/25"
+                >
+                  <GoogleIcon className="h-4 w-4 rounded-full bg-white p-px" /> Perfil de Google
+                </button>
+              </div>
             </div>
           </div>
           <div className="absolute bottom-0 left-0 right-0">
@@ -149,23 +175,15 @@ export default function ContactoPage() {
                   <Separator className="bg-gray-100" />
                   <div className="flex items-start gap-4">
                     <div className="w-14 h-14 bg-emerald-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-6 h-6 text-emerald-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">Correo Electrónico</h3>
-                      <a href="mailto:contacto@limpieza247.com" className="text-lg text-emerald-600 font-bold hover:text-emerald-700 transition-colors">contacto@limpieza247.com</a>
-                      <p className="text-sm text-gray-500 mt-1">Te respondemos en un plazo máximo de 2 horas hábiles.</p>
-                    </div>
-                  </div>
-                  <Separator className="bg-gray-100" />
-                  <div className="flex items-start gap-4">
-                    <div className="w-14 h-14 bg-emerald-50 rounded-xl flex items-center justify-center flex-shrink-0">
                       <MapPin className="w-6 h-6 text-emerald-600" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">Ubicación</h3>
                       <p className="text-lg text-gray-700 font-bold">Av. Vicuña Mackenna 2362, Ñuñoa, Santiago</p>
                       <p className="text-sm text-gray-500 mt-1">Atendemos en toda la Región Metropolitana a domicilio.</p>
+                      <a href={GOOGLE_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:text-emerald-800">
+                        <GoogleIcon className="h-4 w-4" /> Ver en Google Maps <ArrowRight className="w-4 h-4" />
+                      </a>
                     </div>
                   </div>
                   <Separator className="bg-gray-100" />
@@ -235,6 +253,47 @@ export default function ContactoPage() {
           </div>
         </section>
 
+        {/* GOOGLE MAPS + PERFIL DE GOOGLE */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-center">
+            <div className="overflow-hidden rounded-2xl border border-emerald-100 shadow-sm">
+              <iframe
+                src={GOOGLE_MAP_EMBED_URL}
+                title="Ubicación de Limpieza24/7 en Google Maps"
+                className="block h-80 w-full border-0 md:h-96"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+            <div className="rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-100 p-6 md:p-8">
+              <GoogleIcon className="h-10 w-10" />
+              <h2 className="mt-4 text-2xl font-bold text-gray-900">Encuéntranos en Google</h2>
+              <p className="mt-2 text-gray-600 leading-relaxed">
+                Revisa nuestras reseñas, fotos y ubicación en nuestro perfil de Google. Si ya trabajamos contigo,
+                ¡déjanos tu opinión allí!
+              </p>
+              <div className="mt-6 flex flex-col gap-3">
+                <a
+                  href={GOOGLE_PROFILE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
+                >
+                  Ver perfil en Google <ArrowRight className="w-4 h-4" />
+                </a>
+                <button
+                  type="button"
+                  onClick={openGoogleProfile}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-gray-800 ring-1 ring-black/10 transition-colors hover:bg-gray-50"
+                >
+                  <MapPin className="w-4 h-4" /> Ver mapa y horarios
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* QUICK ACTION */}
         <section className="py-16 bg-emerald-50/50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -280,7 +339,6 @@ export default function ContactoPage() {
               <h4 className="font-semibold text-white mb-4">Contacto</h4>
               <div className="space-y-3 text-sm">
                 <p className="flex items-center gap-2"><Phone className="w-4 h-4 text-emerald-400" /> +56 9 4034 9957</p>
-                <p className="flex items-center gap-2"><Mail className="w-4 h-4 text-emerald-400" /> contacto@limpieza247.com</p>
                 <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-emerald-400" /> Av. Vicuña Mackenna 2362, Ñuñoa</p>
               </div>
             </div>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, Camera, Phone, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteHeader } from "@/components/site-header";
+import { VideoGallery } from "@/components/video-gallery";
 
 export const metadata: Metadata = {
   title: "Galería de Proyectos de Limpieza en Santiago | Limpieza24/7",
@@ -101,6 +102,9 @@ export default function GaleriaPage() {
           <ImageGallery />
         </div>
       </section>
+
+      {/* Videos demostrativos */}
+      <VideoGallery />
 
       {/* CTA final */}
       <section className="bg-emerald-600 py-12 text-center text-white">

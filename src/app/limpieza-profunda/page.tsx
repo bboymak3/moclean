@@ -24,6 +24,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { StickyContactBar } from "@/components/sticky-contact-bar";
 import { ImageGallery } from "@/components/image-gallery";
 import { QuoteForm } from "@/components/quote-form";
+import { VideoGallery } from "@/components/video-gallery";
 import { PromoFlyer, PROMO_FLYER_SRC } from "@/components/promo-flyer";
 
 const SITE_URL = "https://limpiezaadomicilio.pages.dev";
@@ -370,6 +371,9 @@ export default function LimpiezaProfundaPage() {
             </div>
           </div>
         </section>
+
+        {/* ─── VIDEOS DEMOSTRATIVOS ─── */}
+        <VideoGallery />
 
         {/* ─── COTIZAR ─── */}
         <section id="cotizar" className="py-20 bg-gradient-to-br from-emerald-900 to-teal-900 text-white">

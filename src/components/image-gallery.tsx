@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { GALLERY_IMAGES, GALLERY_CATEGORIES } from "@/lib/gallery-images";
 import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -24,6 +24,8 @@ export function ImageGallery({
 }: ImageGalleryProps) {
   const [activeCategory, setActiveCategory] = useState<string>("todas");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  // Swipe horizontal en el lightbox (iPhone / tablets)
+  const touchStartX = useRef<number | null>(null);
 
   // Filtrar por categoria
   const filteredImages = activeCategory === "todas"
@@ -114,8 +116,21 @@ export function ImageGallery({
       {/* Lightbox */}
       {lightboxIndex !== null && imagesToShow[lightboxIndex] && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4"
+          className="gallery-lightbox fixed inset-0 z-[10000] flex items-center justify-center bg-black/95 p-4"
+          role="dialog"
+          aria-modal="true"
           onClick={closeLightbox}
+          onTouchStart={(e) => {
+            touchStartX.current = e.touches[0].clientX;
+          }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null) return;
+            const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+            touchStartX.current = null;
+            if (Math.abs(deltaX) < 50) return;
+            if (deltaX < 0) nextImage();
+            else prevImage();
+          }}
         >
           {/* Boton cerrar */}
           <button

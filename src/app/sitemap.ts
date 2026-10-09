@@ -1,11 +1,12 @@
 // src/app/sitemap.ts
 // Sitemap XML dinamico para SEO.
-// Incluye: paginas estaticas, galeria, 12 servicios, 54 comunas.
+// Incluye: paginas estaticas, galeria, blog + articulos, 12 servicios, 54 comunas.
 // Mas amigable para rastreo de IA generativa (Gemini, ChatGPT, Claude, Perplexity).
 
 import type { MetadataRoute } from "next";
 import { COMUNAS } from "@/lib/comunas-data";
 import { SERVICES } from "@/lib/services-data";
+import { BLOG_POSTS } from "@/lib/blog-posts";
 
 export const dynamic = "force-static";
 
@@ -27,6 +28,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: today,
       changeFrequency: "weekly",
       priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/limpieza-profunda`,
+      lastModified: today,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/blog`,
+      lastModified: today,
+      changeFrequency: "weekly",
+      priority: 0.8,
     },
     {
       url: `${SITE_URL}/quienes-somos`,
@@ -70,5 +83,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...servicePages, ...comunaPages];
+  // Artículos del blog
+  const blogPages: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+    url: `${SITE_URL}/blog/${post.slug}`,
+    lastModified: post.date,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...servicePages, ...comunaPages, ...blogPages];
 }

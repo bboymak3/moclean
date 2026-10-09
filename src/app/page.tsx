@@ -58,6 +58,7 @@ const NAV_LINKS = [
   { label: "Galería", href: "/galeria" },
   { label: "Servicios", href: "#servicios" },
   { label: "Comunas", href: "#comunas" },
+  { label: "Blog", href: "/blog" },
   { label: "Quiénes Somos", href: "/quienes-somos" },
   { label: "Preguntas", href: "/preguntas-frecuentes" },
   { label: "Contacto", href: "/contacto" },
@@ -352,6 +353,7 @@ export default function Home() {
             />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-start xl:gap-14">
             <div className="max-w-3xl">
               <Badge className="mb-4 bg-emerald-500/30 text-emerald-100 border-emerald-400/40 text-sm">
                 🟢 Disponibles 24/7 en Santiago
@@ -395,6 +397,42 @@ export default function Home() {
                 ))}
               </div>
             </div>
+
+            {/* Promoción destacada: arriba en móvil, a la derecha en escritorio */}
+            <figure className="order-first mx-auto w-full max-w-sm sm:max-w-md lg:order-none lg:max-w-none">
+              <Link
+                href="/limpieza-profunda"
+                className="block rounded-[28px] border border-white/25 bg-white/10 p-2 shadow-2xl shadow-black/30 backdrop-blur-md transition-transform hover:scale-[1.01]"
+              >
+                <img
+                  src="/images/limpieza-profunda-casas-y-deptos-pre-post-mudanza-santiago.jpg"
+                  alt="Promoción Limpieza24/7: limpieza profunda detallada para casas y departamentos, pre y post mudanza, remodelaciones e inmuebles en mal estado, desde $2.000 el m2"
+                  width={512}
+                  height={512}
+                  fetchPriority="high"
+                  className="block h-auto w-full rounded-[22px]"
+                />
+              </Link>
+              <figcaption className="mt-4 flex flex-wrap justify-center gap-3">
+                <Link
+                  href="/limpieza-profunda"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-emerald-800 transition-colors hover:bg-emerald-50"
+                >
+                  Ver qué incluye
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a
+                  href="https://wa.me/56940349957?text=Hola%20Limpieza24%2F7%2C%20quiero%20cotizar%20la%20limpieza%20profunda%20detallada%20desde%20%242.000%20el%20m2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/30 backdrop-blur-md transition-colors hover:bg-white/25"
+                >
+                  <Phone className="w-4 h-4" />
+                  Cotizar limpieza profunda
+                </a>
+              </figcaption>
+            </figure>
+           </div>
           </div>
           {/* Wave */}
           <div className="absolute bottom-0 left-0 right-0">

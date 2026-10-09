@@ -280,6 +280,60 @@ CLOUDFLARE_API_TOKEN=<token> npx wrangler pages deploy .vercel/output/static \
 
 ---
 
+## 🆕 Novedades: capa iPhone, galería en comunas y blog
+
+### Capa visual estilo iPhone (Liquid Glass)
+
+- Archivo independiente `src/app/ios-skin.css`, importado en `layout.tsx` **después** de `globals.css`.
+- Se activa con `data-skin="ios"` en `<html>`. **Para desactivarla basta con quitar ese atributo**: el sitio vuelve al diseño anterior sin tocar nada más.
+- No cambia textos ni estructura, solo apariencia:
+  - Header como cápsula de vidrio flotante (blur + transparencia).
+  - Barra LLAMAR / WHATSAPP como "dock" de vidrio flotante, respetando la zona segura del iPhone (home indicator / notch).
+  - Botones tipo píldora con efecto de presión, esquinas continuas en tarjetas, tipografía San Francisco en dispositivos Apple (Geist como respaldo).
+  - Formularios estilo iOS con 16px en pantallas táctiles (evita el zoom automático de Safari).
+  - Lightbox de la galería con fondo desenfocado, controles de vidrio y **swipe** para pasar fotos.
+  - Entre 768 y 1279 px se usa el menú hamburguesa (antes el menú de escritorio desbordaba).
+  - Botones "outline" sobre fondos oscuros (ej: "Ver Servicios" del hero) ahora son legibles.
+- iPhone: `viewport-fit=cover`, `apple-touch-icon`, `appleWebApp` y `manifest.webmanifest` para "Agregar a pantalla de inicio".
+- `metadataBase` en el layout: las imágenes de OpenGraph usan el dominio real en vez de `localhost`.
+
+### Foto promocional en el Hero del inicio
+
+- `public/images/limpieza-profunda-casas-y-deptos-pre-post-mudanza-santiago.jpg` (limpieza profunda desde $2.000 el m²).
+- Arriba del título en móvil y a la derecha en escritorio, con botón "Cotizar limpieza profunda" por WhatsApp.
+
+### Landing "Limpieza profunda detallada" (`/limpieza-profunda`)
+
+- Casas y deptos: pre y post mudanza, post obra, remodelaciones e inmuebles en mal estado. Desde $2.000 el m².
+- Secciones: qué incluye, cuándo se necesita, beneficios, cómo funciona, garantía, galería, FAQ (8 preguntas) y formulario "Cotiza tu servicio aquí".
+- El formulario (nombre, teléfono, correo, comuna, m², tipo de limpieza y mensaje) **abre WhatsApp con los datos ya escritos**, así la solicitud llega de verdad (el sitio no tiene backend).
+- JSON-LD `Service` (con precio por m²) + `FAQPage` + `BreadcrumbList`.
+- Enlazada desde la foto promocional del inicio ("Ver qué incluye"), el footer de las páginas nuevas, el sitemap y el blog.
+
+### Galería en las landings de comunas
+
+- **Todas** las landings `/comunas/[slug]` (52 comunas generadas desde `COMUNAS`) ahora incluyen la sección "Galería de Proyectos" con el mismo modal de fotos (filtros + lightbox) del inicio, y botón "Ver galería completa" → `/galeria`.
+
+### Blog
+
+- `/blog` — listado con búsqueda (ignora tildes), control segmentado por categoría y artículo destacado.
+- `/blog/[slug]` — **13 artículos** en 5 categorías: Técnicas, Productos, Servicios, Anécdotas y Preguntas y respuestas. JSON-LD `BlogPosting` + `BreadcrumbList` (+ `FAQPage` en los artículos de preguntas).
+- Contenido en `src/lib/blog-posts.ts`: para publicar un artículo nuevo basta con agregar un objeto al array (la página, el sitemap y el JSON-LD se generan solos). Admite `**negrita**` y `[links](/ruta)`.
+- Accesible desde el menú en **todas** las páginas (inicio, comunas, contacto, quiénes somos, preguntas, políticas, galería, servicios y el propio blog).
+- Componentes compartidos nuevos: `site-header.tsx`, `site-footer.tsx`, `sticky-contact-bar.tsx` y `components/blog/*`.
+
+### Sitemap actualizado
+
+| Tipo | Cantidad |
+|---|---|
+| Páginas estáticas (incluye `/blog` y `/limpieza-profunda`) | 8 |
+| Servicios | 12 |
+| Comunas | 52 |
+| Artículos del blog | 13 |
+| **Total** | **85** |
+
+---
+
 ## 📞 Contacto
 
 - **Teléfono:** +56 9 4034 9957

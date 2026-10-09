@@ -37,6 +37,8 @@ import { COMUNAS, COMUNAS_DESTACADAS } from "@/lib/comunas-data";
 import { SERVICES } from "@/lib/services-data";
 import { ImageGallery } from "@/components/image-gallery";
 import { ComunasMap } from "@/components/comunas-map";
+import { PromoFlyer, PROMO_FLYER_SRC } from "@/components/promo-flyer";
+import { openWhatsApp } from "@/lib/whatsapp";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -185,6 +187,18 @@ export default function Home() {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Sin backend: la solicitud se envía por WhatsApp con los datos ya escritos
+    const servicio =
+      SERVICES.find((s) => s.slug === formData.servicio)?.title ??
+      (formData.servicio === "otro" ? "Otro servicio" : "");
+    openWhatsApp([
+      "Hola Limpieza24/7, quiero cotizar un servicio (formulario web, 5% de descuento).",
+      `Nombre: ${formData.nombre}`,
+      `Teléfono: ${formData.telefono}`,
+      `Correo: ${formData.correo}`,
+      servicio && `Servicio: ${servicio}`,
+      formData.mensaje && `Mensaje: ${formData.mensaje}`,
+    ]);
     setFormSent(true);
     setTimeout(() => setFormSent(false), 5000);
     setFormData({ nombre: "", telefono: "", correo: "", mensaje: "", servicio: "" });
@@ -399,39 +413,13 @@ export default function Home() {
             </div>
 
             {/* Promoción destacada: arriba en móvil, a la derecha en escritorio */}
-            <figure className="order-first mx-auto w-full max-w-sm sm:max-w-md lg:order-none lg:max-w-none">
-              <Link
-                href="/limpieza-profunda"
-                className="block rounded-[28px] border border-white/25 bg-white/10 p-2 shadow-2xl shadow-black/30 backdrop-blur-md transition-transform hover:scale-[1.01]"
-              >
-                <img
-                  src="/images/limpieza-profunda-casas-y-deptos-pre-post-mudanza-santiago.jpg"
-                  alt="Promoción Limpieza24/7: limpieza profunda detallada para casas y departamentos, pre y post mudanza, remodelaciones e inmuebles en mal estado, desde $2.000 el m2"
-                  width={512}
-                  height={512}
-                  fetchPriority="high"
-                  className="block h-auto w-full rounded-[22px]"
-                />
-              </Link>
-              <figcaption className="mt-4 flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/limpieza-profunda"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-emerald-800 transition-colors hover:bg-emerald-50"
-                >
-                  Ver qué incluye
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <a
-                  href="https://wa.me/56940349957?text=Hola%20Limpieza24%2F7%2C%20quiero%20cotizar%20la%20limpieza%20profunda%20detallada%20desde%20%242.000%20el%20m2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-white/15 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/30 backdrop-blur-md transition-colors hover:bg-white/25"
-                >
-                  <Phone className="w-4 h-4" />
-                  Cotizar limpieza profunda
-                </a>
-              </figcaption>
-            </figure>
+            <PromoFlyer
+              src={PROMO_FLYER_SRC}
+              alt="Limpieza profunda detallada a domicilio para casas y deptos en Santiago: pre y post mudanza, remodelaciones e inmuebles en mal estado"
+              href="/limpieza-profunda"
+              whatsappUrl="https://wa.me/56940349957?text=Hola%20Limpieza24%2F7%2C%20quiero%20cotizar%20la%20limpieza%20profunda%20detallada"
+              className="order-first lg:order-none"
+            />
            </div>
           </div>
           {/* Wave */}
@@ -862,10 +850,11 @@ export default function Home() {
                       <CheckCircle2 className="w-8 h-8 text-emerald-600" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      ¡Mensaje Enviado!
+                      ¡Listo! Revisa WhatsApp
                     </h3>
                     <p className="text-gray-600">
-                      Te contactaremos en los próximos minutos. ¡Gracias por elegir Limpieza24/7!
+                      Se abrió WhatsApp con tu mensaje: solo presiona enviar y te responderemos en minutos.
+                      ¡Gracias por elegir Limpieza24/7!
                     </p>
                   </div>
                 ) : (
@@ -969,6 +958,9 @@ export default function Home() {
                         Enviar y Obtener 5% de Descuento
                       </Button>
                     </form>
+                    <p className="text-xs text-gray-500 mt-3 text-center">
+                      Al enviar se abrirá WhatsApp con tus datos listos.
+                    </p>
                     <p className="text-xs text-gray-400 mt-3 text-center">
                       📌 Nota: En Limpieza24/7 atendemos únicamente solicitudes de servicios.
                       No gestionamos postulaciones laborales a través de este sitio web.

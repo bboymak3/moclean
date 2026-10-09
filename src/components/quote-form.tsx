@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { COMUNAS } from "@/lib/comunas-data";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 const TIPOS = [
   "Pre mudanza (entrega de depto o casa)",
@@ -30,7 +31,7 @@ export function QuoteForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const lines = [
+    openWhatsApp([
       "Hola Limpieza24/7, quiero cotizar una limpieza profunda detallada.",
       `Nombre: ${data.nombre}`,
       `Teléfono: ${data.telefono}`,
@@ -39,8 +40,7 @@ export function QuoteForm() {
       data.tipo && `Tipo de limpieza: ${data.tipo}`,
       data.metros && `Metros cuadrados aprox.: ${data.metros}`,
       data.mensaje && `Mensaje: ${data.mensaje}`,
-    ].filter(Boolean);
-    window.open(`https://wa.me/56940349957?text=${encodeURIComponent(lines.join("\n"))}`, "_blank");
+    ]);
   };
 
   const selectClass =

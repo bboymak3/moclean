@@ -299,8 +299,23 @@ CLOUDFLARE_API_TOKEN=<token> npx wrangler pages deploy .vercel/output/static \
 
 ### Foto promocional en el Hero del inicio
 
-- `public/images/limpieza-profunda-casas-y-deptos-pre-post-mudanza-santiago.jpg` (limpieza profunda desde $2.000 el m²).
-- Arriba del título en móvil y a la derecha en escritorio, con botón "Cotizar limpieza profunda" por WhatsApp.
+- `public/images/limpieza-profunda-a-domicilio-casas-y-deptos-mudanza-santiago.jpg` (limpieza profunda detallada para casas y deptos, pre y post mudanza). Optimizada: JPEG progresivo sin metadatos.
+- Arriba del título en móvil y a la derecha en escritorio, con botones "Ver qué incluye" (→ `/limpieza-profunda`) y "Cotizar limpieza profunda" (WhatsApp).
+- Componente reutilizable: `src/components/promo-flyer.tsx`.
+
+### Banner de limpieza profunda en cada comuna
+
+- Cada landing `/comunas/[slug]` muestra la misma foto como banner en el Hero, pero con un **nombre de archivo propio con palabras clave + la comuna** (SEO de imágenes):
+  `public/images/comunas/limpieza-a-domicilio-en-santiago-{comuna}.jpg` (ej: `limpieza-a-domicilio-en-santiago-pudahuel.jpg`).
+- El banner también se usa como imagen OpenGraph/Twitter y en el JSON-LD `LocalBusiness` de cada comuna.
+- La ruta se obtiene con `getComunaBannerSrc(slug)` en `src/lib/comunas-data.ts`. **Si agregas una comuna nueva**, copia la foto con ese mismo patrón de nombre.
+- Git guarda una sola copia del contenido (los 52 archivos son idénticos), así que no aumenta el tamaño del repositorio.
+
+### Formularios que envían por WhatsApp
+
+- Los formularios de **inicio**, **contacto**, **cada comuna** y **/limpieza-profunda** abren WhatsApp con los datos ya escritos (nombre, teléfono, correo, servicio, comuna y mensaje), indicando el 5% de descuento del formulario web.
+- Antes mostraban "¡Mensaje Enviado!" pero no enviaban nada a ningún lado.
+- Lógica compartida en `src/lib/whatsapp.ts` (`openWhatsApp`). Si el navegador bloquea la pestaña nueva, abre WhatsApp en la misma pestaña.
 
 ### Landing "Limpieza profunda detallada" (`/limpieza-profunda`)
 

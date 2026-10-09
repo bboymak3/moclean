@@ -24,10 +24,11 @@ import { SiteFooter } from "@/components/site-footer";
 import { StickyContactBar } from "@/components/sticky-contact-bar";
 import { ImageGallery } from "@/components/image-gallery";
 import { QuoteForm } from "@/components/quote-form";
+import { PromoFlyer, PROMO_FLYER_SRC } from "@/components/promo-flyer";
 
 const SITE_URL = "https://limpiezaadomicilio.pages.dev";
 const PAGE_URL = `${SITE_URL}/limpieza-profunda`;
-const FLYER = "/images/limpieza-profunda-casas-y-deptos-pre-post-mudanza-santiago.jpg";
+const FLYER = PROMO_FLYER_SRC;
 const WHATSAPP_URL =
   "https://wa.me/56940349957?text=Hola%20Limpieza24%2F7%2C%20quiero%20cotizar%20una%20limpieza%20profunda%20detallada";
 
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     locale: "es_CL",
     url: PAGE_URL,
     siteName: "Limpieza24/7",
-    images: [{ url: FLYER, width: 512, height: 512 }],
+    images: [{ url: FLYER, width: 1024, height: 1024 }],
   },
   alternates: {
     canonical: PAGE_URL,
@@ -229,18 +230,10 @@ export default function LimpiezaProfundaPage() {
                 </div>
               </div>
 
-              <figure className="mx-auto w-full max-w-sm sm:max-w-md lg:max-w-none">
-                <div className="rounded-[28px] border border-white/25 bg-white/10 p-2 shadow-2xl shadow-black/30 backdrop-blur-md">
-                  <img
-                    src={FLYER}
-                    alt="Limpieza profunda detallada para casas y departamentos, pre y post mudanza, desde $2.000 el m2"
-                    width={512}
-                    height={512}
-                    fetchPriority="high"
-                    className="block h-auto w-full rounded-[22px]"
-                  />
-                </div>
-              </figure>
+              <PromoFlyer
+                src={FLYER}
+                alt="Limpieza profunda detallada a domicilio para casas y deptos en Santiago: pre y post mudanza, remodelaciones e inmuebles en mal estado"
+              />
             </div>
 
             {/* Stats */}

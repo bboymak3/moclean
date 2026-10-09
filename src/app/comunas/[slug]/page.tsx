@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { COMUNAS, getComunaBySlug } from "@/lib/comunas-data";
+import { COMUNAS, getComunaBySlug, getComunaBannerSrc } from "@/lib/comunas-data";
 import ComunaPageContent from "@/components/comuna-page";
 
 const SITE_URL = "https://limpiezaadomicilio.pages.dev";
@@ -50,11 +50,20 @@ export async function generateMetadata({
       locale: "es_CL",
       url: `${SITE_URL}/comunas/${comuna.slug}`,
       siteName: "Limpieza24/7",
+      images: [
+        {
+          url: getComunaBannerSrc(comuna.slug),
+          width: 1024,
+          height: 1024,
+          alt: `Limpieza profunda detallada a domicilio en ${comuna.name}, Santiago`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [getComunaBannerSrc(comuna.slug)],
     },
     alternates: {
       canonical: `${SITE_URL}/comunas/${comuna.slug}`,
@@ -100,7 +109,7 @@ export default async function ComunaPage({
         description: `Servicio profesional de limpieza a domicilio en ${comuna.name}, Santiago de Chile. Alfombras, sillones, colchones, cortinas, autos, Airbnb, post obra y más. Trabajo a mano, productos ecológicos.`,
         url: `${SITE_URL}/comunas/${comuna.slug}`,
         telephone: "+56940349957",
-        image: `${SITE_URL}/hero-cleaning.png`,
+        image: [`${SITE_URL}${getComunaBannerSrc(comuna.slug)}`, `${SITE_URL}/hero-cleaning.png`],
         priceRange: "$$",
         address: {
           "@type": "PostalAddress",

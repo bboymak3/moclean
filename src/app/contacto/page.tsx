@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { openWhatsApp } from "@/lib/whatsapp";
 import {
   Phone, Mail, MapPin, Clock, CheckCircle2,
   Send, Menu, X, ChevronRight, ArrowRight,
@@ -35,6 +36,15 @@ export default function ContactoPage() {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Sin backend: la solicitud se envía por WhatsApp con los datos ya escritos
+    openWhatsApp([
+      "Hola Limpieza24/7, quiero cotizar un servicio (formulario web, 5% de descuento).",
+      `Nombre: ${formData.nombre}`,
+      `Teléfono: ${formData.telefono}`,
+      `Correo: ${formData.correo}`,
+      formData.servicio && `Servicio: ${formData.servicio === "otro" ? "Otro servicio" : formData.servicio}`,
+      formData.mensaje && `Mensaje: ${formData.mensaje}`,
+    ]);
     setFormSent(true);
     setTimeout(() => setFormSent(false), 5000);
     setFormData({ nombre: "", telefono: "", correo: "", mensaje: "", servicio: "" });
@@ -180,8 +190,8 @@ export default function ContactoPage() {
                     <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
                       <CheckCircle2 className="w-10 h-10 text-emerald-600" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">¡Mensaje Enviado!</h3>
-                    <p className="text-gray-600 mb-4">Te contactaremos en los próximos minutos. ¡Gracias por elegir Limpieza24/7!</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">¡Listo! Revisa WhatsApp</h3>
+                    <p className="text-gray-600 mb-4">Se abrió WhatsApp con tu mensaje: solo presiona enviar y te responderemos en minutos. ¡Gracias por elegir Limpieza24/7!</p>
                     <Button onClick={() => setFormSent(false)} className="bg-emerald-600 hover:bg-emerald-700 text-white">Enviar otro mensaje</Button>
                   </div>
                 ) : (
@@ -216,6 +226,7 @@ export default function ContactoPage() {
                       <Button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-base" size="lg">
                         <Send className="w-4 h-4 mr-2" /> Enviar y Obtener 5% de Descuento
                       </Button>
+                      <p className="text-xs text-gray-500 text-center">Al enviar se abrirá WhatsApp con tus datos listos.</p>
                     </form>
                   </>
                 )}

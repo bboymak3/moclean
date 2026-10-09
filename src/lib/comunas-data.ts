@@ -67,6 +67,16 @@ export const COMUNAS_DESTACADAS = [
   "san-bernardo",
 ] as const;
 
+/**
+ * Banner promocional de cada comuna: la misma foto, con un nombre de archivo
+ * con palabras clave + la comuna (SEO de imágenes).
+ * Archivos en public/images/comunas/. Al agregar una comuna nueva, copia la
+ * foto con este mismo patrón de nombre.
+ */
+export function getComunaBannerSrc(slug: string): string {
+  return `/images/comunas/limpieza-a-domicilio-en-santiago-${slug}.jpg`;
+}
+
 export function getComunaBySlug(slug: string): Comuna | undefined {
   return COMUNAS.find((c) => c.slug === slug);
 }

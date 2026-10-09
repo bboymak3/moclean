@@ -6,7 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SERVICES } from "@/lib/services-data";
 import { ImageGallery } from "@/components/image-gallery";
 import { VideoGallery } from "@/components/video-gallery";
-import { COMUNAS_DESTACADAS } from "@/lib/comunas-data";
+import { COMUNAS_DESTACADAS, getComunaBySlug } from "@/lib/comunas-data";
 
 export async function generateStaticParams() {
   return SERVICES.map((service) => ({
@@ -243,7 +243,8 @@ export default async function ServicioPage({
             Comunas donde atendemos este servicio
           </h2>
           <div className="flex flex-wrap justify-center gap-2">
-            {COMUNAS_DESTACADAS.map((comuna) => (
+            {/* COMUNAS_DESTACADAS es una lista de slugs: se busca cada comuna para tener nombre y link */}
+            {COMUNAS_DESTACADAS.flatMap((slug) => getComunaBySlug(slug) ?? []).map((comuna) => (
               <Link
                 key={comuna.slug}
                 href={`/comunas/${comuna.slug}`}

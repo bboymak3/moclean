@@ -24,7 +24,7 @@ export const DEMO_VIDEOS: DemoVideo[] = [
     src: "/videos/limpieza-de-sillones-a-domicilio-santiago-proceso.mp4",
     poster: "/videos/limpieza-de-sillones-a-domicilio-santiago-proceso.jpg",
     title: "Limpieza de sillón paso a paso",
-    description: "Así tratamos la tela del sillón, zona por zona, con equipos profesionales.",
+    description: "Sanitizamos la tela del sillón con vapor, zona por zona.",
     duration: 24,
     vertical: true,
     uploadDate: "2026-09-30",

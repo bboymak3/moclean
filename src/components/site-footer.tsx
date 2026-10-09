@@ -31,7 +31,12 @@ export function SiteFooter() {
           <div>
             <h4 className="font-semibold text-white mb-4">Servicios</h4>
             <ul className="space-y-2 text-sm">
-              {SERVICES.slice(0, 6).map((s) => (
+              <li>
+                <Link href="/limpieza-profunda" className="hover:text-emerald-400 transition-colors">
+                  Limpieza profunda detallada
+                </Link>
+              </li>
+              {SERVICES.slice(0, 5).map((s) => (
                 <li key={s.slug}>
                   <Link href={`/servicios/${s.slug}`} className="hover:text-emerald-400 transition-colors">
                     {s.title}

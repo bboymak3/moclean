@@ -302,6 +302,14 @@ CLOUDFLARE_API_TOKEN=<token> npx wrangler pages deploy .vercel/output/static \
 - `public/images/limpieza-profunda-casas-y-deptos-pre-post-mudanza-santiago.jpg` (limpieza profunda desde $2.000 el m²).
 - Arriba del título en móvil y a la derecha en escritorio, con botón "Cotizar limpieza profunda" por WhatsApp.
 
+### Landing "Limpieza profunda detallada" (`/limpieza-profunda`)
+
+- Casas y deptos: pre y post mudanza, post obra, remodelaciones e inmuebles en mal estado. Desde $2.000 el m².
+- Secciones: qué incluye, cuándo se necesita, beneficios, cómo funciona, garantía, galería, FAQ (8 preguntas) y formulario "Cotiza tu servicio aquí".
+- El formulario (nombre, teléfono, correo, comuna, m², tipo de limpieza y mensaje) **abre WhatsApp con los datos ya escritos**, así la solicitud llega de verdad (el sitio no tiene backend).
+- JSON-LD `Service` (con precio por m²) + `FAQPage` + `BreadcrumbList`.
+- Enlazada desde la foto promocional del inicio ("Ver qué incluye"), el footer de las páginas nuevas, el sitemap y el blog.
+
 ### Galería en las landings de comunas
 
 - **Todas** las landings `/comunas/[slug]` (52 comunas generadas desde `COMUNAS`) ahora incluyen la sección "Galería de Proyectos" con el mismo modal de fotos (filtros + lightbox) del inicio, y botón "Ver galería completa" → `/galeria`.
@@ -318,11 +326,11 @@ CLOUDFLARE_API_TOKEN=<token> npx wrangler pages deploy .vercel/output/static \
 
 | Tipo | Cantidad |
 |---|---|
-| Páginas estáticas (incluye `/blog`) | 7 |
+| Páginas estáticas (incluye `/blog` y `/limpieza-profunda`) | 8 |
 | Servicios | 12 |
 | Comunas | 52 |
 | Artículos del blog | 13 |
-| **Total** | **84** |
+| **Total** | **85** |
 
 ---
 

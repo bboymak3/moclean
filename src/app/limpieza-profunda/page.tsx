@@ -35,7 +35,7 @@ const WHATSAPP_URL =
 export const metadata: Metadata = {
   title: "Limpieza Profunda Detallada de Casas y Deptos en Santiago | Limpieza24/7",
   description:
-    "Limpieza profunda detallada de casas y departamentos en Santiago: pre y post mudanza, post obra, remodelaciones e inmuebles en mal estado. Desde $2.000 el m². Cotiza al +56 9 4034 9957.",
+    "Limpieza profunda detallada de casas y departamentos en Santiago: pre y post mudanza, post obra, remodelaciones e inmuebles en mal estado. Cotización gratis al +56 9 4034 9957.",
   keywords: [
     "limpieza profunda Santiago",
     "aseo profundo departamento",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Limpieza Profunda Detallada de Casas y Deptos en Santiago",
     description:
-      "Pre y post mudanza, post obra, remodelaciones e inmuebles en mal estado. Desde $2.000 el m².",
+      "Pre y post mudanza, post obra, remodelaciones e inmuebles en mal estado. Cotización gratis.",
     type: "website",
     locale: "es_CL",
     url: PAGE_URL,
@@ -96,7 +96,7 @@ const FAQS = [
   },
   {
     q: "¿Cuánto cuesta la limpieza profunda?",
-    a: "El valor parte desde $2.000 el m² y varía según el tamaño del inmueble y la complejidad de la limpieza. Envíanos fotos y los metros cuadrados aproximados por WhatsApp al +56 9 4034 9957 y te damos un precio claro antes de agendar.",
+    a: "El valor varía según el tamaño del inmueble y la complejidad de la limpieza. Envíanos fotos y los metros cuadrados aproximados por WhatsApp al +56 9 4034 9957 y te damos un precio claro antes de agendar.",
   },
   {
     q: "¿Cómo contrato el servicio?",
@@ -144,17 +144,6 @@ export default function LimpiezaProfundaPage() {
           url: SITE_URL,
         },
         areaServed: { "@type": "AdministrativeArea", name: "Región Metropolitana de Santiago de Chile" },
-        offers: {
-          "@type": "Offer",
-          priceCurrency: "CLP",
-          priceSpecification: {
-            "@type": "UnitPriceSpecification",
-            price: 2000,
-            priceCurrency: "CLP",
-            unitText: "m2",
-            description: "Desde $2.000 el m². El valor varía según tamaño y complejidad.",
-          },
-        },
       },
       {
         "@type": "FAQPage",
@@ -206,10 +195,8 @@ export default function LimpiezaProfundaPage() {
                   listo para habitar, entregar o arrendar, incluso si está en mal estado.
                 </p>
                 <div className="mb-8 inline-flex flex-col rounded-2xl border border-white/20 bg-white/10 px-5 py-4 backdrop-blur-md">
-                  <span className="text-sm text-emerald-200">Valor desde</span>
-                  <span className="text-3xl font-extrabold">
-                    $2.000 <span className="text-lg font-semibold text-emerald-200">el m²</span>
-                  </span>
+                  <span className="text-sm text-emerald-200">Cotización gratis</span>
+                  <span className="text-2xl font-extrabold">Precio según tu inmueble</span>
                   <span className="mt-1 text-xs text-emerald-200">
                     Varía según el tamaño del inmueble y la complejidad de la limpieza.
                   </span>

@@ -61,7 +61,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { COMUNAS, getRelatedComunas } from "@/lib/comunas-data";
+import { COMUNAS, getRelatedComunas, getComunaBannerSrc } from "@/lib/comunas-data";
+import { PromoFlyer } from "@/components/promo-flyer";
+import { openWhatsApp } from "@/lib/whatsapp";
 
 /* ───────────────────────── DATA ─────────────────────────── */
 
@@ -135,6 +137,19 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Sin backend: la solicitud se envía por WhatsApp con los datos ya escritos
+    const servicio =
+      SERVICES.find((s) => s.slug === formData.servicio)?.title ??
+      (formData.servicio === "otro" ? "Otro servicio" : "");
+    openWhatsApp([
+      `Hola Limpieza24/7, quiero cotizar un servicio en ${comunaName} (formulario web, 5% de descuento).`,
+      `Nombre: ${formData.nombre}`,
+      `Teléfono: ${formData.telefono}`,
+      `Correo: ${formData.correo}`,
+      `Comuna: ${comunaName}`,
+      servicio && `Servicio: ${servicio}`,
+      formData.mensaje && `Mensaje: ${formData.mensaje}`,
+    ]);
     setFormSent(true);
     setTimeout(() => setFormSent(false), 5000);
     setFormData({ nombre: "", telefono: "", correo: "", mensaje: "", servicio: "" });
@@ -239,6 +254,7 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
             <img src="/hero-cleaning.png" alt="" className="w-full h-full object-cover" aria-hidden="true" />
           </div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-start xl:gap-14">
             <div className="max-w-3xl">
               <Badge className="mb-4 bg-emerald-500/30 text-emerald-100 border-emerald-400/40 text-sm">
                 🟢 Disponibles 24/7 en {comunaName}
@@ -272,6 +288,16 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
                 ))}
               </div>
             </div>
+
+            {/* Banner de limpieza profunda: arriba en móvil, a la derecha en escritorio */}
+            <PromoFlyer
+              src={getComunaBannerSrc(comunaSlug)}
+              alt={`Limpieza profunda detallada a domicilio en ${comunaName}, Santiago: casas y deptos, pre y post mudanza, remodelaciones e inmuebles en mal estado`}
+              href="/limpieza-profunda"
+              whatsappUrl={`https://wa.me/56940349957?text=${encodeURIComponent(`Hola Limpieza24/7, quiero cotizar una limpieza profunda detallada en ${comunaName}`)}`}
+              className="order-first lg:order-none"
+            />
+           </div>
           </div>
           <div className="absolute bottom-0 left-0 right-0">
             <svg viewBox="0 0 1440 80" fill="none"><path d="M0 40L48 36C96 32 192 24 288 28C384 32 480 48 576 52C672 56 768 48 864 40C960 32 1056 24 1152 28C1248 32 1344 48 1392 56L1440 64V80H0V40Z" fill="white" /></svg>
@@ -486,8 +512,8 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
                 {formSent ? (
                   <div className="flex flex-col items-center justify-center py-12 text-center">
                     <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4"><CheckCircle2 className="w-8 h-8 text-emerald-600" /></div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">¡Mensaje Enviado!</h3>
-                    <p className="text-gray-600">Te contactaremos en los próximos minutos.</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">¡Listo! Revisa WhatsApp</h3>
+                    <p className="text-gray-600">Se abrió WhatsApp con tu mensaje: solo presiona enviar y te responderemos en minutos.</p>
                   </div>
                 ) : (
                   <>
@@ -506,6 +532,7 @@ export default function ComunaPageContent({ comunaSlug, comunaName }: ComunaPage
                       </div>
                       <div><Label htmlFor="mensaje" className="text-gray-700 text-sm">Mensaje</Label><Textarea id="mensaje" placeholder={`Cuéntanos qué necesitas en ${comunaName}...`} rows={3} value={formData.mensaje} onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })} className="mt-1" /></div>
                       <Button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold" size="lg"><Send className="w-4 h-4 mr-2" /> Enviar y Obtener 5% de Descuento</Button>
+                      <p className="text-xs text-gray-500 text-center">Al enviar se abrirá WhatsApp con tus datos listos.</p>
                     </form>
                   </>
                 )}

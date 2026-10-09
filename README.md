@@ -1,6 +1,6 @@
 # Limpieza24/7 — Limpieza a Domicilio en Santiago de Chile
 
-> Sitio web de **Limpieza24/7**, empresa de limpieza profesional a domicilio en la Región Metropolitana de Santiago de Chile. Servicio a mano con productos ecológicos — **sin pistola de vapor**.
+> Sitio web de **Limpieza24/7**, empresa de limpieza profesional a domicilio en la Región Metropolitana de Santiago de Chile. Servicio a mano con productos ecológicos, complementado con **vapor** para sanitizar y desodorizar.
 
 **URL en producción:** [limpiezaadomicilio.pages.dev](https://limpiezaadomicilio.pages.dev)
 

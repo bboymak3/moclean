@@ -13,7 +13,7 @@
 | Framework | Next.js 16.1.3 (Turbopack) | App Router, Server + Client Components |
 | Lenguaje | TypeScript 5 | Tipado estático en todos los archivos |
 | Estilos | Tailwind CSS 4 + shadcn/ui | Componentes accesibles |
-| Hospedaje | Cloudflare Pages | Build con `@cloudflare/next-on-pages` |
+| Hospedaje | Cloudflare Pages | Publicación automática desde GitHub (rama `main`) |
 | Runtime | Cloudflare Workers | `nodejs_compat` activado |
 | Mapas | Leaflet 1.9.4 + OpenStreetMap | Sin API key |
 | Formularios | WhatsApp Click-to-Chat | Sin backend |
@@ -234,34 +234,33 @@ bun install
 # Servidor de desarrollo (http://localhost:3000)
 bun run dev
 
-# Build de producción
+# Build de producción (genera el sitio estático en out/)
 bun run build
-
-# Build para Cloudflare Pages
-npx --legacy-peer-deps @cloudflare/next-on-pages
-
-# Deploy a Cloudflare Pages
-CLOUDFLARE_API_TOKEN=<token> npx wrangler pages deploy .vercel/output/static \
-  --project-name=limpiezaadomicilio
 ```
+
+Para publicar no hace falta ningún comando: basta con fusionar a `main` (ver **Deploy**).
 
 ---
 
 ## 🚀 Deploy
 
-El deploy se hace con `wrangler pages deploy` directamente a Cloudflare Pages. No está conectado vía GitHub (no hay webhook automático), por lo que cada deploy es manual.
+**Automático desde GitHub.** El proyecto de Cloudflare Pages (`limpiezaadomicilio`) está conectado a este repositorio: cada vez que se sube o se fusiona un cambio en la rama **`main`**, Cloudflare construye y publica el sitio automáticamente en [limpiezaadomicilio.pages.dev](https://limpiezaadomicilio.pages.dev). No hay que ejecutar nada a mano.
 
-**Requisitos:**
-- Cloudflare API Token con permisos de Pages
-- `nodejs_compat` flag activado en el proyecto
+**Flujo de trabajo:**
+1. Hacer los cambios en una rama.
+2. Abrir un pull request hacia `main`.
+3. Fusionar el pull request → Cloudflare publica el sitio solo en unos minutos.
 
-**Comando completo:**
+El estado de cada publicación se ve en el panel de Cloudflare: **Workers & Pages → limpiezaadomicilio → Deployments**.
+
+**Deploy manual (solo si hiciera falta).** Todas las páginas son estáticas (`output: "export"`), así que basta con subir la carpeta `out/`. Requiere un Cloudflare API Token con permiso **Cloudflare Pages: Edit**:
+
 ```bash
-bun run build && \
-npx --legacy-peer-deps @cloudflare/next-on-pages && \
-CLOUDFLARE_API_TOKEN=<token> npx wrangler pages deploy .vercel/output/static \
-  --project-name=limpiezaadomicilio
+bun run build
+CLOUDFLARE_API_TOKEN=<token> npx wrangler pages deploy out --project-name=limpiezaadomicilio
 ```
+
+El método anterior con `@cloudflare/next-on-pages` (`.vercel/output/static`) también funciona, pero necesita el flag `nodejs_compat` activado en el proyecto (ver bug #4).
 
 ---
 
